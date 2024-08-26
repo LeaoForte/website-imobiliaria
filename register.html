@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registo - Dynasty8</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #183c32;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #2c5c4d;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header a {
+            display: block;
+            margin: 0 auto;
+            max-width: 200px;
+        }
+
+        header img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px; /* pontas da imagem redondas */
+        }
+
+        header h1 {
+            color: #fff; 
+            margin-top: 10px;
+        }
+
+        .topbar {
+            background-color: #183c32; 
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+        }
+
+        .topbar a {
+            display: inline-block;
+            color: #fff; 
+            margin: 0 10px;
+            text-decoration: none;
+            transition: color 0.3s ease; 
+        }
+
+        .topbar a:hover {
+            color: #ffcc00; 
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #397d66; 
+            margin-top: 20px;
+        }
+
+        section {
+            margin: 20px;
+            text-align: center;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #397d66;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2c5c4d;
+        }
+
+        footer {
+            background-color: #2c5c4d; 
+            color: #fff; 
+            text-align: center;
+            padding: 15px 0;
+            margin-top: auto; 
+            width: 100%;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); 
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="index.html">
+            <img src="fotos_e_cenas/dynasty8.png" alt="Logotipo Empresa">
+        </a>
+        <h1>Registro - Dynasty8</h1>
+    </header>
+
+    <div class="topbar">
+        <a href="index.html">Início</a>
+        <a href="normas.html">Normas</a>
+        <a href="comunicados.html">Comunicados</a>
+        <a href="lista.html">Imóveis</a>
+        <a href="orcamento.html">Orçamentos</a>
+        <a href="contactos.html">Contactos</a>
+        <a href="login.html">Login</a>
+    </div>
+
+    <section>
+        <h2>Preencha o formulário de registo</h2>
+        <form action="processar_registro.php" method="post">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
+
+            <button type="submit">Registar</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Dynasty 8. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+
+</html>
