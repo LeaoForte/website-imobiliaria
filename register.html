@@ -52,12 +52,13 @@
 
         .register-container {
             display: flex;
-            height: calc(100vh - 80px); /* Ajusta a altura para ocupar o restante da tela após a barra superior */
+            flex: 1;
+            height: 100%; /* Ocupa a altura restante da tela */
         }
 
         .register-image {
             flex: 1;
-            background: url('photologin.jpg') no-repeat center center;
+            background: url('photoregister.jpg') no-repeat center center;
             background-size: cover;
         }
 
@@ -100,6 +101,19 @@
 
         .form-control::placeholder {
             color: #aaa;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .col-half {
+            flex: 0 0 48%;
+        }
+
+        .col-full {
+            width: 100%;
         }
 
         .btn-primary {
@@ -148,7 +162,8 @@
             background-color: #333;
             padding: 15px;
             color: #fff;
-            margin-top: auto;
+            margin-top: auto; /* Move o footer para o fim */
+            width: 100%;
         }
 
         footer p {
@@ -180,15 +195,27 @@
                 <p>Faça login em Saber Lusitano para partilhar e comparar os seus imóveis favoritos e melhorar a sua experiência de pesquisa.</p>
 
                 <form>
-                    <input type="email" class="form-control" id="email" placeholder="Email">
-                    <input type="text" class="form-control" id="firstname" placeholder="Primeiro nome">
-                    <input type="text" class="form-control" id="lastname" placeholder="Último nome">
-                    <input type="password" class="form-control" id="password" placeholder="Password">
-                    <input type="password" class="form-control" id="confirm-password" placeholder="Confirmar Password">
+                    <div class="form-group col-full">
+                        <input type="email" class="form-control" id="email" placeholder="Email">
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-half">
+                            <input type="text" class="form-control" id="firstname" placeholder="Primeiro nome">
+                        </div>
+                        <div class="col-half">
+                            <input type="text" class="form-control" id="lastname" placeholder="Último nome">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="password" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="confirm-password" placeholder="Confirmar Password">
+                    </div>
 
                     <div class="terms">
                         <p>* Mínimo de 7 caracteres com no mínimo uma letra e um número e aceita maiúsculas e minúsculas. Pode utilizar estes caracteres especiais: @#$%^&+=!</p>
-                        <p>Ao registar-se está a aceitar os Termos de uso e a Política de privacidade. Poderá alterar as suas configurações a qualquer momento na sua área pessoal.</p>
+                        <p>Ao registar-se está a aceitar os <a href="termos.html">Termos de uso</a> e a <a href="privacidade.html">Política de privacidade</a>. Poderá alterar as suas configurações a qualquer momento na sua área pessoal.</p>
                     </div>
 
                     <button type="submit" class="btn btn-primary">Registar</button>
