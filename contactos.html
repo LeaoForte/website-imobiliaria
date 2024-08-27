@@ -117,6 +117,27 @@
             padding: 40px;
         }
 
+        .contact-info {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .contact-info h2 {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            font-size: 1.2em;
+            color: #333;
+            margin: 10px 0;
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2em;
@@ -173,24 +194,12 @@
             </form>
         </div>
 
-        <!-- Formulário para Pedidos de Documentação -->
-        <div>
-            <h2>Pedidos de Documentação</h2>
-            <form action="/enviar-documentacao" method="post">
-                <div class="mb-3">
-                    <label for="nomeDocumentacao" class="form-label">Nome:</label>
-                    <input type="text" class="form-control" id="nomeDocumentacao" name="nomeDocumentacao" required>
-                </div>
-                <div class="mb-3">
-                    <label for="emailDocumentacao" class="form-label">E-mail:</label>
-                    <input type="email" class="form-control" id="emailDocumentacao" name="emailDocumentacao" required>
-                </div>
-                <div class="mb-3">
-                    <label for="mensagemDocumentacao" class="form-label">Mensagem:</label>
-                    <textarea class="form-control" id="mensagemDocumentacao" name="mensagemDocumentacao" rows="3" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Enviar Pedido de Documentação</button>
-            </form>
+        <!-- Informações de Contato da Empresa -->
+        <div class="contact-info">
+            <h2>Contacte-nos</h2>
+            <p><strong>Morada:</strong> Rua Exemplo, 123, Lisboa, Portugal</p>
+            <p><strong>Telefone:</strong> +351 123 456 789</p>
+            <p><strong>Email:</strong> contacto@saberlusitano.com</p>
         </div>
     </div>
 
