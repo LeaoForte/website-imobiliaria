@@ -97,15 +97,19 @@
         .form-control-lg {
             width: 100%; /* Garante que a caixa ocupe a largura total disponível */
             max-width: 500px; /* Define uma largura máxima para as caixas de entrada */
+            margin-bottom: 15px; /* Adiciona um espaço entre as caixas de entrada */
         }
 
         .btn-primary {
+            width: 100%; /* Garante que o botão ocupe a largura total disponível */
+            max-width: 500px; /* Define uma largura máxima para o botão */
             background-color: #28a745;
             border-color: #28a745;
             padding: 10px 20px; /* Reduz o padding para ocupar menos espaço */
             font-size: 1em; /* Ajusta o tamanho da fonte */
             border-radius: 4px; /* Torna o botão retangular */
             transition: background-color 0.3s ease, border-color 0.3s ease;
+            margin-top: 10px; /* Adiciona um espaço acima do botão */
         }
 
         .btn-primary:hover {
@@ -165,7 +169,13 @@
                     <div class="form-group mb-3">
                         <input type="password" class="form-control form-control-lg" id="password" placeholder="Password">
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                    <div class="form-group mb-3">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">Lembrar-me</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
                 </form>
 
                 <div class="mt-3 text-center">
