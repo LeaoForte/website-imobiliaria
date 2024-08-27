@@ -72,7 +72,7 @@
         }
 
         .container {
-            max-width: 400px;
+            max-width: 500px; /* Aumenta o limite máximo de largura do container */
             width: 100%;
         }
 
@@ -96,6 +96,21 @@
             font-size: 1em;
             color: #333;
             margin-bottom: 15px;
+            width: 100%; /* Garante que as caixas ocupem a largura completa disponível */
+        }
+
+        .form-control-2 {
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            padding: 15px;
+            font-size: 1em;
+            color: #333;
+            margin-bottom: 15px;
+            width: 50%;
+        }
+
+        .form-control-2:first-child {
+            margin-right: 2%; /* Adiciona espaço entre os campos */
         }
 
         .form-control::placeholder {
@@ -105,10 +120,6 @@
         .row {
             display: flex;
             justify-content: space-between;
-        }
-
-        .col-half {
-            flex: 0 0 48%;
         }
 
         .btn-primary {
@@ -193,12 +204,8 @@
                         <input type="email" class="form-control" id="email" placeholder="Email">
                     </div>
                     <div class="form-group row">
-                        <div class="col-half">
-                            <input type="text" class="form-control" id="firstname" placeholder="Primeiro nome">
-                        </div>
-                        <div class="col-half">
-                            <input type="text" class="form-control" id="lastname" placeholder="Último nome">
-                        </div>
+                        <input type="text" class="form-control-2" id="firstname" placeholder="Primeiro nome">
+                        <input type="text" class="form-control-2" id="lastname" placeholder="Último nome">
                     </div>
                     <div class="form-group">
                         <input type="password" class="form-control" id="password" placeholder="Password">
