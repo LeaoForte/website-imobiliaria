@@ -52,7 +52,7 @@
 
         .register-container {
             display: flex;
-            height: calc(100vh - 80px); /* Ajusta a altura para ocupar o restante da tela após a barra superior */
+            height: calc(100vh - 80px);
         }
 
         .register-image {
@@ -72,7 +72,7 @@
         }
 
         .container {
-            max-width: 500px; /* Aumenta o limite máximo de largura do container */
+            max-width: 500px;
             width: 100%;
         }
 
@@ -96,21 +96,21 @@
             font-size: 1em;
             color: #333;
             margin-bottom: 15px;
-            width: 100%; /* Garante que as caixas ocupem a largura completa disponível */
+            width: 100%;
         }
 
         .form-control-2 {
             border-radius: 8px;
             border: 1px solid #ddd;
-            padding: 15px;
+            padding: 19px;
             font-size: 1em;
             color: #333;
             margin-bottom: 15px;
-            width: 50%;
+            width: calc(60% - 10px); /* Aumenta a largura das caixas para 60% */
         }
 
         .form-control-2:first-child {
-            margin-right: 2%; /* Adiciona espaço entre os campos */
+            margin-right: 20px; /* Espaçamento entre as duas caixas de texto */
         }
 
         .form-control::placeholder {
@@ -167,7 +167,7 @@
             text-align: center;
             background-color: #333;
             padding: 15px;
-            color: #fff;  /* Define o texto do footer como branco */
+            color: #fff;
             margin-top: auto;
         }
 
