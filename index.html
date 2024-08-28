@@ -227,7 +227,7 @@ footer p {
                     <button class="btn active" id="btnComprar">Comprar</button>
                     <button class="btn" id="btnArrendar">Arrendar</button>
                 </div>
-                <input type="text" id="searchInput" placeholder="Pesquise por propriedades...">
+                <input type="text" id="searchInput" placeholder="Onde? (Zona ou Morada ou Código postal)">
             </div>
         </section>
     </main>
@@ -299,7 +299,7 @@ footer p {
             document.querySelector('nav a[aria-label="Login"]').textContent = 'Login';
             document.getElementById('btnComprar').textContent = 'Comprar';
             document.getElementById('btnArrendar').textContent = 'Arrendar';
-            document.getElementById('searchInput').placeholder = 'Pesquise por propriedades...';
+            document.getElementById('searchInput').placeholder = 'Onde? (Zona ou Morada ou Código postal)';
         } else if (lang === 'en') {
             // Simulação de troca de idioma para inglês
             document.querySelector('nav a[aria-label="Início"]').textContent = 'Home';
@@ -308,7 +308,7 @@ footer p {
             document.querySelector('nav a[aria-label="Login"]').textContent = 'Login';
             document.getElementById('btnComprar').textContent = 'Buy';
             document.getElementById('btnArrendar').textContent = 'Rent';
-            document.getElementById('searchInput').placeholder = 'Search for properties...';
+            document.getElementById('searchInput').placeholder = 'Where? (Area or Address or Postal Code)';
         }
     }
 </script>
