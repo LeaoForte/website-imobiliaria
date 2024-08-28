@@ -138,7 +138,6 @@
             margin: 10px 0;
         }
 
-        /* Centraliza o mapa no container */
         .map-container {
             display: flex;
             justify-content: center;
@@ -146,16 +145,16 @@
         }
 
         .language-selector img {
-    width: 24px; /* Define a largura das bandeiras */
-    height: 24px; /* Define a altura das bandeiras */
-    margin-left: 10px; /* Adiciona um espaço entre as bandeiras */
-    cursor: pointer; /* Muda o cursor para indicar que é clicável */
-    transition: transform 0.2s ease; /* Adiciona uma transição suave para o efeito de hover */
-}
+            width: 24px; /* Define a largura das bandeiras */
+            height: 24px; /* Define a altura das bandeiras */
+            margin-left: 10px; /* Adiciona um espaço entre as bandeiras */
+            cursor: pointer; /* Muda o cursor para indicar que é clicável */
+            transition: transform 0.2s ease; /* Adiciona uma transição suave para o efeito de hover */
+        }
 
-.language-selector img:hover {
-    transform: scale(1.1); /* Aumenta ligeiramente o tamanho no hover */
-}
+        .language-selector img:hover {
+            transform: scale(1.1); /* Aumenta ligeiramente o tamanho no hover */
+        }
 
         iframe {
             border: 0;
@@ -193,12 +192,10 @@
             <a href="contactos.html" aria-label="Contactos">Contactos</a>
             <a href="login.html" aria-label="Login">Login</a>
         </nav>
-
         <div class="language-selector">
-        <img src="pt.png" alt="Português" onclick="setLanguage('pt')" title="Português">
-        <img src="uk.png" alt="English" onclick="setLanguage('en')" title="English">
-    </div>    
-        
+            <img src="pt.png" alt="Português" onclick="setLanguage('pt')" title="Português">
+            <img src="uk.png" alt="English" onclick="setLanguage('en')" title="English">
+        </div>    
     </div>
 
     <div class="container">
@@ -245,26 +242,41 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-GLhlTQ8iK+ZiGIXXYByXFpWdS8PiUJFhR2KmPAvX4WKb5qE1rlj5Q6AgJZfQ6j6h" crossorigin="anonymous"></script>
-  <script>
-    function setLanguage(lang) {
-        if (lang === 'pt') {
-            // Simulação de troca de idioma para português
-            document.querySelector('nav a[aria-label="Início"]').textContent = 'Início';
-            document.querySelector('nav a[aria-label="Imóveis"]').textContent = 'Imóveis';
-            document.querySelector('nav a[aria-label="Remodelações"]').textContent = 'Remodelações';
-            document.querySelector('nav a[aria-label="Contactos"]').textContent = 'Contactos';
-            document.querySelector('nav a[aria-label="Login"]').textContent = 'Login';
-
-        } else if (lang === 'en') {
-            // Simulação de troca de idioma para inglês
-            document.querySelector('nav a[aria-label="Início"]').textContent = 'Home';
-            document.querySelector('nav a[aria-label="Imóveis"]').textContent = 'Properties';
-            document.querySelector('nav a[aria-label="Remodelações"]').textContent = 'Renovations';
-            document.querySelector('nav a[aria-label="Contactos"]').textContent = 'Contact';
-            document.querySelector('nav a[aria-label="Login"]').textContent = 'Login';
+    <script>
+        function setLanguage(lang) {
+            if (lang === 'pt') {
+                // Simulação de troca de idioma para português
+                document.querySelector('nav a[aria-label="Início"]').textContent = 'Início';
+                document.querySelector('nav a[aria-label="Imóveis"]').textContent = 'Imóveis';
+                document.querySelector('nav a[aria-label="Remodelações"]').textContent = 'Remodelações';
+                document.querySelector('nav a[aria-label="Contactos"]').textContent = 'Contactos';
+                document.querySelector('nav a[aria-label="Login"]').textContent = 'Login';
+                document.querySelector('h1').textContent = 'Formulário de Contacto';
+                document.querySelector('h2').textContent = 'Marcações e Pedidos de Informação';
+                document.querySelector('label[for="nomeOrcamento"]').textContent = 'Nome:';
+                document.querySelector('label[for="emailOrcamento"]').textContent = 'E-mail:';
+                document.querySelector('label[for="mensagemOrcamento"]').textContent = 'Mensagem:';
+                document.querySelector('button').textContent = 'Enviar Formulário';
+                document.querySelector('.contact-info h2').textContent = 'Contacte-nos';
+                document.querySelector('.contact-info p').innerHTML = '<strong>Morada:</strong> Centro Comercial do Lumiar, Loja n.º 48 <br>Rua Professor João Barreira 1600-637 Lisboa<br>Portugal<br><strong>Telefone:</strong> +351 965 238 396<br><strong>Email:</strong> contacto@saberlusitano.com';
+            } else if (lang === 'en') {
+                // Simulação de troca de idioma para inglês
+                document.querySelector('nav a[aria-label="Início"]').textContent = 'Home';
+                document.querySelector('nav a[aria-label="Imóveis"]').textContent = 'Properties';
+                document.querySelector('nav a[aria-label="Remodelações"]').textContent = 'Renovations';
+                document.querySelector('nav a[aria-label="Contactos"]').textContent = 'Contact';
+                document.querySelector('nav a[aria-label="Login"]').textContent = 'Login';
+                document.querySelector('h1').textContent = 'Contact Form';
+                document.querySelector('h2').textContent = 'Appointments and Information Requests';
+                document.querySelector('label[for="nomeOrcamento"]').textContent = 'Name:';
+                document.querySelector('label[for="emailOrcamento"]').textContent = 'Email:';
+                document.querySelector('label[for="mensagemOrcamento"]').textContent = 'Message:';
+                document.querySelector('button').textContent = 'Submit Form';
+                document.querySelector('.contact-info h2').textContent = 'Contact Us';
+                document.querySelector('.contact-info p').innerHTML = '<strong>Address:</strong> Centro Comercial do Lumiar, Store No. 48 <br>Rua Professor João Barreira 1600-637 Lisbon<br>Portugal<br><strong>Phone:</strong> +351 965 238 396<br><strong>Email:</strong> contacto@saberlusitano.com';
+            }
         }
-    }
-</script>
+    </script>
 </body>
 
 </html>
