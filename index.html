@@ -258,17 +258,32 @@ footer p {
             showSlide(currentSlide);
         }
 
-        document.getElementById('btnComprar').addEventListener('click', function() {
-            this.classList.add('active');
-            document.getElementById('btnArrendar').classList.remove('active');
-            document.getElementById('searchInput').placeholder = 'Pesquise por propriedades para comprar...';
-        });
+        let searchType = 'comprar'; // Valor padrão é 'comprar'
 
-        document.getElementById('btnArrendar').addEventListener('click', function() {
-            this.classList.add('active');
-            document.getElementById('btnComprar').classList.remove('active');
-            document.getElementById('searchInput').placeholder = 'Pesquise por propriedades para arrendar...';
-        });
+    document.getElementById('btnComprar').addEventListener('click', function() {
+        this.classList.add('active');
+        document.getElementById('btnArrendar').classList.remove('active');
+        searchType = 'comprar'; // Define a ação de pesquisa para 'comprar'
+    });
+
+    document.getElementById('btnArrendar').addEventListener('click', function() {
+        this.classList.add('active');
+        document.getElementById('btnComprar').classList.remove('active');
+        searchType = 'arrendar'; // Define a ação de pesquisa para 'arrendar'
+    });
+
+    function performSearch() {
+        const searchQuery = document.getElementById('searchInput').value;
+        console.log(`Tipo de pesquisa: ${searchType}, Consulta: ${searchQuery}`);
+        // Aqui você pode adicionar a lógica para realizar a pesquisa com base em 'searchType'
+    }
+
+    // Exemplo de como ativar a pesquisa com um botão ou outro evento
+    document.getElementById('searchInput').addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            performSearch(); // Chama a função de pesquisa quando o Enter é pressionado
+        }
+    });
 
         // Inicializar o slide
         showSlide(currentSlide);
