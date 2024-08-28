@@ -185,22 +185,21 @@ footer p {
 <body>
 
     <div class="topbar">
-        <a href="index.html">
-            <img src="saberlusitano.png" alt="Logotipo Empresa">
-        </a>
-        <nav>
-            <a href="index.html" aria-label="Início" class="nav-link" data-translate="home">Início</a>
-            <a href="lista.html" aria-label="Imóveis" class="nav-link" data-translate="properties">Imóveis</a>
-            <a href="contactos.html" aria-label="Contactos" class="nav-link" data-translate="contacts">Contactos</a>
-            <a href="login.html" aria-label="Login" class="nav-link" data-translate="login">Login</a>
-            <select id="languageSelect" aria-label="Language Selector">
-                <option value="pt" selected>Português</option>
-                <option value="en">English</option>
-            </select>
-        </nav>
+    <a href="index.html">
+        <img src="saberlusitano.png" alt="Logotipo Empresa">
+    </a>
+    <nav>
+        <a href="index.html" aria-label="Início">Início</a>
+        <a href="lista.html" aria-label="Imóveis">Imóveis</a>
+        <a href="contactos.html" aria-label="Contactos">Contactos</a>
+        <a href="login.html" aria-label="Login">Login</a>
+    </nav>
+    <div class="language-selector">
+        <img src="pt.png" alt="Português" onclick="setLanguage('pt')" title="Português">
+        <img src="uk.png" alt="English" onclick="setLanguage('en')" title="English">
     </div>
+</div>
     
-
     <main>
         <section class="search-section">
             <div class="slider">
