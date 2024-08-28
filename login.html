@@ -217,12 +217,28 @@
                 document.querySelector('nav a[aria-label="Remodelações"]').textContent = 'Remodelações';
                 document.querySelector('nav a[aria-label="Contactos"]').textContent = 'Contactos';
                 document.querySelector('nav a[aria-label="Login"]').textContent = 'Login';
+                document.querySelector('h2').textContent = 'Iniciar Sessão';
+                document.querySelector('input#email').placeholder = 'Email';
+                document.querySelector('input#password').placeholder = 'Password';
+                document.querySelector('label[for="rememberMe"]').textContent = 'Lembrar-me';
+                document.querySelector('button').textContent = 'Login';
+                document.querySelector('.text-center a[href="forgot-password.html"]').textContent = 'Esqueceu a senha?';
+                document.querySelector('.text-center a[href="register.html"]').textContent = 'Registe-se';
+                document.querySelector('footer p').textContent = '© 2024 Saber Lusitano. Todos os direitos reservados.';
             } else if (lang === 'en') {
                 document.querySelector('nav a[aria-label="Início"]').textContent = 'Home';
                 document.querySelector('nav a[aria-label="Imóveis"]').textContent = 'Properties';
                 document.querySelector('nav a[aria-label="Remodelações"]').textContent = 'Renovations';
                 document.querySelector('nav a[aria-label="Contactos"]').textContent = 'Contact';
                 document.querySelector('nav a[aria-label="Login"]').textContent = 'Login';
+                document.querySelector('h2').textContent = 'Login';
+                document.querySelector('input#email').placeholder = 'Email';
+                document.querySelector('input#password').placeholder = 'Password';
+                document.querySelector('label[for="rememberMe"]').textContent = 'Remember me';
+                document.querySelector('button').textContent = 'Login';
+                document.querySelector('.text-center a[href="forgot-password.html"]').textContent = 'Forgot password?';
+                document.querySelector('.text-center a[href="register.html"]').textContent = 'Register';
+                document.querySelector('footer p').textContent = '© 2024 Saber Lusitano. All rights reserved.';
             }
         }
     </script>
