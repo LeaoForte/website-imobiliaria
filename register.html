@@ -210,12 +210,36 @@
                 document.querySelector('nav a[aria-label="Remodelações"]').textContent = 'Remodelações';
                 document.querySelector('nav a[aria-label="Contactos"]').textContent = 'Contactos';
                 document.querySelector('nav a[aria-label="Login"]').textContent = 'Login';
+                document.querySelector('h2').textContent = 'Efetue o seu registo';
+                document.querySelector('form p').textContent = 'Faça login em Saber Lusitano para partilhar e comparar os seus imóveis favoritos e melhorar a sua experiência de pesquisa.';
+                document.querySelector('input[placeholder="Email"]').placeholder = 'Email';
+                document.querySelector('input[placeholder="Primeiro nome"]').placeholder = 'Primeiro nome';
+                document.querySelector('input[placeholder="Último nome"]').placeholder = 'Último nome';
+                document.querySelector('input[placeholder="Password"]').placeholder = 'Password';
+                document.querySelector('input[placeholder="Confirmar Password"]').placeholder = 'Confirmar Password';
+                document.querySelector('.terms p:first-of-type').textContent = '* Mínimo de 7 caracteres com no mínimo uma letra e um número e aceita maiúsculas e minúsculas. Pode utilizar estes caracteres especiais: @#$%^&+=!';
+                document.querySelector('.terms p:last-of-type').textContent = 'Ao registar-se está a aceitar os Termos de uso e a Política de privacidade. Poderá alterar as suas configurações a qualquer momento na sua área pessoal.';
+                document.querySelector('button').textContent = 'Registar';
+                document.querySelector('.text-center a[href="login.html"]').textContent = 'Login';
+                document.querySelector('footer p').textContent = '© 2024 Saber Lusitano. Todos os direitos reservados.';
             } else if (lang === 'en') {
                 document.querySelector('nav a[aria-label="Início"]').textContent = 'Home';
                 document.querySelector('nav a[aria-label="Imóveis"]').textContent = 'Properties';
                 document.querySelector('nav a[aria-label="Remodelações"]').textContent = 'Renovations';
                 document.querySelector('nav a[aria-label="Contactos"]').textContent = 'Contact';
                 document.querySelector('nav a[aria-label="Login"]').textContent = 'Login';
+                document.querySelector('h2').textContent = 'Register';
+                document.querySelector('form p').textContent = 'Sign up at Saber Lusitano to share and compare your favorite properties and enhance your search experience.';
+                document.querySelector('input[placeholder="Email"]').placeholder = 'Email';
+                document.querySelector('input[placeholder="Primeiro nome"]').placeholder = 'First name';
+                document.querySelector('input[placeholder="Último nome"]').placeholder = 'Last name';
+                document.querySelector('input[placeholder="Password"]').placeholder = 'Password';
+                document.querySelector('input[placeholder="Confirmar Password"]').placeholder = 'Confirm Password';
+                document.querySelector('.terms p:first-of-type').textContent = '* Minimum of 7 characters with at least one letter and one number, and accepts uppercase and lowercase letters. You can use these special characters: @#$%^&+=!';
+                document.querySelector('.terms p:last-of-type').textContent = 'By registering, you agree to the Terms of Use and Privacy Policy. You can change your settings at any time in your personal area.';
+                document.querySelector('button').textContent = 'Register';
+                document.querySelector('.text-center a[href="login.html"]').textContent = 'Login';
+                document.querySelector('footer p').textContent = '© 2024 Saber Lusitano. All rights reserved.';
             }
         }
     </script>
