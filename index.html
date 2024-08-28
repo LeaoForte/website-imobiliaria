@@ -26,7 +26,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 80px; /* Definindo uma altura para a barra superior */
+            height: 80px;
         }
 
         .topbar img {
@@ -50,53 +50,104 @@
             color: #ffcc00;
         }
 
-        section {
-            background-color: #fff;
-            padding: 100px 0;
-            color: #ffffff;
-            text-align: center;
-        }
-
-        h1 {
-            font-family: 'Roboto', sans-serif;
-            font-size: 3em;
-            margin-bottom: 20px;
-            color: #fff;
-        }
-
-        p {
-            font-size: 1.4em;
-            margin-bottom: 30px;
-            color: #fff;
-        }
-
-        .btn-primary {
-            background-color: #fff;
-            border-color: #28a745;
-            padding: 15px 30px;
-            font-size: 1.2em;
-            border-radius: 50px;
-            transition: background-color 0.3s ease, border-color 0.3s ease;
-        }
-
-        .btn-primary:hover {
-            background-color: #ff4136;
-            border-color: #ff4136;
-        }
-
         main {
             flex: 1;
             margin-top: 20px;
             padding: 20px;
         }
 
-        .container {
-            max-width: 1000px;
-            margin: 20px auto;
+        .search-section {
+            position: relative;
+            height: 400px; /* Ajuste a altura conforme necessário */
+            overflow: hidden;
+        }
+
+        .slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1; /* Faz o slider ficar atrás do menu de pesquisa */
+        }
+
+        .slider img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+
+        .slider img.active {
+            display: block;
+        }
+
+        .slider .arrow {
+            position: absolute;
+            top: 50%;
+            width: 30px;
+            height: 30px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+            font-size: 24px;
+            cursor: pointer;
+            border-radius: 50%;
+            transform: translateY(-50%);
+            z-index: 2; /* Faz as setas ficar sobre o slider */
+        }
+
+        .slider .arrow.left {
+            left: 10px;
+        }
+
+        .slider .arrow.right {
+            right: 10px;
+        }
+
+        .search-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 2; /* Faz o menu de pesquisa ficar sobre o slider */
+            color: #fff;
+        }
+
+        .search-content .btn-group {
+            margin-top: 20px;
+        }
+
+        .search-content .btn {
+            background-color: #fff;
+            border-color: #28a745;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 0; /* Botões retangulares */
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+            border: 2px solid;
+        }
+
+        .search-content .btn.active {
             background-color: #28a745;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            color: #fff;
+        }
+
+        .search-content .btn:hover {
+            background-color: #ff4136;
+            border-color: #ff4136;
+        }
+
+        .search-content input[type="text"] {
+            width: 80%;
+            padding: 15px;
+            font-size: 1em;
+            border-radius: 0; /* Borda reta */
+            border: 2px solid #28a745;
+            margin-top: 20px;
+            background-color: #fff;
         }
 
         footer {
@@ -113,22 +164,13 @@
         }
 
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5em;
+            .search-content input[type="text"] {
+                width: 100%;
             }
 
-            p {
-                font-size: 1.2em;
-            }
-        }
-
-        @media (max-width: 576px) {
-            h1 {
-                font-size: 2em;
-            }
-
-            p {
+            .search-content .btn {
                 font-size: 1em;
+                padding: 10px 20px;
             }
         }
     </style>
@@ -149,11 +191,21 @@
     </div>
 
     <main>
-        <section id="about" class="jumbotron text-center">
-            <div class="container">
-                <h1>Bem-vindo à Saber Lusitano</h1>
-                <p>Encontra a casa dos teus sonhos connosco!</p>
-                <a class="btn btn-primary btn-lg" href="lista.html" role="button">Ver Propriedades</a>
+        <section class="search-section">
+            <div class="slider">
+                <img src="image1.jpg" alt="Imagem 1" class="active">
+                <img src="image2.jpg" alt="Imagem 2">
+                <img src="image3.jpg" alt="Imagem 3">
+                <!-- Adicione mais imagens conforme necessário -->
+                <div class="arrow left" onclick="prevSlide()">&#9664;</div>
+                <div class="arrow right" onclick="nextSlide()">&#9654;</div>
+            </div>
+            <div class="search-content">
+                <div class="btn-group">
+                    <button class="btn active" id="btnComprar">Comprar</button>
+                    <button class="btn" id="btnArrendar">Arrendar</button>
+                </div>
+                <input type="text" id="searchInput" placeholder="Pesquise por propriedades...">
             </div>
         </section>
     </main>
@@ -161,6 +213,44 @@
     <footer class="bg-dark text-light text-center py-3">
         <p>&copy; 2023 Saber Lusitano. Todos os direitos reservados.</p>
     </footer>
+
+    <script>
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelectorAll('.slider img');
+            if (index >= slides.length) currentSlide = 0;
+            if (index < 0) currentSlide = slides.length - 1;
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide++;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide--;
+            showSlide(currentSlide);
+        }
+
+        document.getElementById('btnComprar').addEventListener('click', function() {
+            this.classList.add('active');
+            document.getElementById('btnArrendar').classList.remove('active');
+            document.getElementById('searchInput').placeholder = 'Pesquise por propriedades para comprar...';
+        });
+
+        document.getElementById('btnArrendar').addEventListener('click', function() {
+            this.classList.add('active');
+            document.getElementById('btnComprar').classList.remove('active');
+            document.getElementById('searchInput').placeholder = 'Pesquise por propriedades para arrendar...';
+        });
+
+        // Inicializar o slide
+        showSlide(currentSlide);
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-rbs5uFifdAfL5SRRAfxrOJfBqJb8eO93fo3pJqj4IqIMqVd8ebnqBwRVdAUn/fQh" crossorigin="anonymous"></script>
 
