@@ -294,28 +294,49 @@ footer p {
 
 <script>
     function setLanguage(lang) {
-        if (lang === 'pt') {
-            // Simulação de troca de idioma para português
-            document.querySelector('nav a[aria-label="Início"]').textContent = 'Início';
-            document.querySelector('nav a[aria-label="Imóveis"]').textContent = 'Imóveis';
-            document.querySelector('nav a[aria-label="Remodelações"]').textContent = 'Remodelações';
-            document.querySelector('nav a[aria-label="Contactos"]').textContent = 'Contactos';
-            document.querySelector('nav a[aria-label="Login"]').textContent = 'Login';
-            document.getElementById('btnComprar').textContent = 'Comprar';
-            document.getElementById('btnArrendar').textContent = 'Arrendar';
-            document.getElementById('searchInput').placeholder = 'Onde? (Zona ou Morada ou Código postal)';
-        } else if (lang === 'en') {
-            // Simulação de troca de idioma para inglês
-            document.querySelector('nav a[aria-label="Início"]').textContent = 'Home';
-            document.querySelector('nav a[aria-label="Imóveis"]').textContent = 'Properties';
-            document.querySelector('nav a[aria-label="Remodelações"]').textContent = 'Renovations';
-            document.querySelector('nav a[aria-label="Contactos"]').textContent = 'Contact';
-            document.querySelector('nav a[aria-label="Login"]').textContent = 'Login';
-            document.getElementById('btnComprar').textContent = 'Buy';
-            document.getElementById('btnArrendar').textContent = 'Rent';
-            document.getElementById('searchInput').placeholder = 'Where? (Area or Address or Postal Code)';
+    const translations = {
+        pt: {
+            'nav a[aria-label="Início"]': 'Início',
+            'nav a[aria-label="Imóveis"]': 'Imóveis',
+            'nav a[aria-label="Remodelações"]': 'Remodelações',
+            'nav a[aria-label="Contactos"]': 'Contactos',
+            'nav a[aria-label="Login"]': 'Login',
+            
+            'footer p': '© 2024 Saber Lusitano. Todos os direitos reservados.'
+        },
+        en: {
+            'nav a[aria-label="Início"]': 'Home',
+            'nav a[aria-label="Imóveis"]': 'Properties',
+            'nav a[aria-label="Remodelações"]': 'Renovations',
+            'nav a[aria-label="Contactos"]': 'Contact',
+            'nav a[aria-label="Login"]': 'Login',
+            
+            'footer p': '© 2024 Saber Lusitano. All rights reserved.'
+        }
+    };
+
+    const translation = translations[lang];
+
+    for (const selector in translation) {
+        const element = document.querySelector(selector);
+        if (element) {
+            // Handle special cases for HTML content
+            if (selector === 'h4') {
+                element.innerHTML = translation[selector];
+            } else {
+                element.textContent = translation[selector];
+            }
         }
     }
+
+    // Special handling for placeholder attributes
+    document.querySelectorAll('input[placeholder]').forEach(input => {
+        const placeholder = input.getAttribute('placeholder');
+        if (translations[lang][`input[placeholder="${placeholder}"]`]) {
+            input.setAttribute('placeholder', translations[lang][`input[placeholder="${placeholder}"]`]);
+        }
+    });
+}
 </script>
 
 
