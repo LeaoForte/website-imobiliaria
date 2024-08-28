@@ -197,7 +197,7 @@
 
                 <div class="mt-3 text-center">
                     <p><a href="forgot-password.html">Esqueceu a senha?</a></p>
-                    <p>Ainda não tem uma conta? <a href="register.html">Registe-se</a></p>
+                    <h4>Ainda não tem uma conta? <a href="register.html">Registe-se</a></h4>
                 </div>
             </div>
         </div>
@@ -211,36 +211,71 @@
 
     <script>
         function setLanguage(lang) {
-            if (lang === 'pt') {
-                document.querySelector('nav a[aria-label="Início"]').textContent = 'Início';
-                document.querySelector('nav a[aria-label="Imóveis"]').textContent = 'Imóveis';
-                document.querySelector('nav a[aria-label="Remodelações"]').textContent = 'Remodelações';
-                document.querySelector('nav a[aria-label="Contactos"]').textContent = 'Contactos';
-                document.querySelector('nav a[aria-label="Login"]').textContent = 'Login';
-                document.querySelector('h2').textContent = 'Iniciar Sessão';
-                document.querySelector('input#email').placeholder = 'Email';
-                document.querySelector('input#password').placeholder = 'Password';
-                document.querySelector('label[for="rememberMe"]').textContent = 'Lembrar-me';
-                document.querySelector('button').textContent = 'Login';
-                document.querySelector('.text-center a[href="forgot-password.html"]').textContent = 'Esqueceu a senha?';
-                document.querySelector('.text-center a[href="register.html"]').textContent = 'Registe-se';
-                document.querySelector('footer p').textContent = '© 2024 Saber Lusitano. Todos os direitos reservados.';
-            } else if (lang === 'en') {
-                document.querySelector('nav a[aria-label="Início"]').textContent = 'Home';
-                document.querySelector('nav a[aria-label="Imóveis"]').textContent = 'Properties';
-                document.querySelector('nav a[aria-label="Remodelações"]').textContent = 'Renovations';
-                document.querySelector('nav a[aria-label="Contactos"]').textContent = 'Contact';
-                document.querySelector('nav a[aria-label="Login"]').textContent = 'Login';
-                document.querySelector('h2').textContent = 'Login';
-                document.querySelector('input#email').placeholder = 'Email';
-                document.querySelector('input#password').placeholder = 'Password';
-                document.querySelector('label[for="rememberMe"]').textContent = 'Remember me';
-                document.querySelector('button').textContent = 'Login';
-                document.querySelector('.text-center a[href="forgot-password.html"]').textContent = 'Forgot password?';
-                document.querySelector('.text-center a[href="register.html"]').textContent = 'Register';
-                document.querySelector('footer p').textContent = '© 2024 Saber Lusitano. All rights reserved.';
+    const translations = {
+        pt: {
+            'nav a[aria-label="Início"]': 'Início',
+            'nav a[aria-label="Imóveis"]': 'Imóveis',
+            'nav a[aria-label="Remodelações"]': 'Remodelações',
+            'nav a[aria-label="Contactos"]': 'Contactos',
+            'nav a[aria-label="Login"]': 'Login',
+            'h2': 'Efetue o seu registo',
+            'p': 'Faça login em Saber Lusitano para partilhar e comparar os seus imóveis favoritos e melhorar a sua experiência de pesquisa.',
+            'input[placeholder="Email"]': 'Email',
+            'input[placeholder="Primeiro nome"]': 'Primeiro nome',
+            'input[placeholder="Último nome"]': 'Último nome',
+            'input[placeholder="Password"]': 'Password',
+            'input[placeholder="Confirmar Password"]': 'Confirmar Password',
+            '.terms p:first-of-type': '* Mínimo de 7 caracteres com no mínimo uma letra e um número e aceita maiúsculas e minúsculas. Pode utilizar estes caracteres especiais: @#$%^&+=!',
+            '.terms p:last-of-type': 'Ao registar-se está a aceitar os Termos de uso e a Política de privacidade. Poderá alterar as suas configurações a qualquer momento na sua área pessoal.',
+            'button': 'Registar',
+            '.text-center a[href="login.html"]': 'Login',
+            'h4': 'Já tem uma conta? <a href="login.html">Login</a>',
+            'footer p': '© 2024 Saber Lusitano. Todos os direitos reservados.'
+        },
+        en: {
+            'nav a[aria-label="Início"]': 'Home',
+            'nav a[aria-label="Imóveis"]': 'Properties',
+            'nav a[aria-label="Remodelações"]': 'Renovations',
+            'nav a[aria-label="Contactos"]': 'Contact',
+            'nav a[aria-label="Login"]': 'Login',
+            'h2': 'Register',
+            'p': 'Sign up at Saber Lusitano to share and compare your favorite properties and enhance your search experience.',
+            'input[placeholder="Email"]': 'Email',
+            'input[placeholder="Primeiro nome"]': 'First name',
+            'input[placeholder="Último nome"]': 'Last name',
+            'input[placeholder="Password"]': 'Password',
+            'input[placeholder="Confirmar Password"]': 'Confirm Password',
+            '.terms p:first-of-type': '* Minimum of 7 characters with at least one letter and one number, and accepts uppercase and lowercase letters. You can use these special characters: @#$%^&+=!',
+            '.terms p:last-of-type': 'By registering, you agree to the Terms of Use and Privacy Policy. You can change your settings at any time in your personal area.',
+            'button': 'Register',
+            '.text-center a[href="login.html"]': 'Login',
+            'h4': 'Already have an account? <a href="login.html">Login</a>',
+            'footer p': '© 2024 Saber Lusitano. All rights reserved.'
+        }
+    };
+
+    const translation = translations[lang];
+
+    for (const selector in translation) {
+        const element = document.querySelector(selector);
+        if (element) {
+            // Handle special cases for HTML content
+            if (selector === 'h4') {
+                element.innerHTML = translation[selector];
+            } else {
+                element.textContent = translation[selector];
             }
         }
+    }
+
+    // Special handling for placeholder attributes
+    document.querySelectorAll('input[placeholder]').forEach(input => {
+        const placeholder = input.getAttribute('placeholder');
+        if (translations[lang][`input[placeholder="${placeholder}"]`]) {
+            input.setAttribute('placeholder', translations[lang][`input[placeholder="${placeholder}"]`]);
+        }
+    });
+}
     </script>
     
 </body>
