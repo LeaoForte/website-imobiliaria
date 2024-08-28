@@ -209,6 +209,27 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-rbs5uFifdAfL5SRRAfxrOJfBqJb8eO93fo3pJqj4IqIMqVd8ebnqBwRVdAUn/fQh" crossorigin="anonymous"></script>
 
+      <script>
+    function setLanguage(lang) {
+        if (lang === 'pt') {
+            // Simulação de troca de idioma para português
+            document.querySelector('nav a[aria-label="Início"]').textContent = 'Início';
+            document.querySelector('nav a[aria-label="Imóveis"]').textContent = 'Imóveis';
+            document.querySelector('nav a[aria-label="Remodelações"]').textContent = 'Remodelações';
+            document.querySelector('nav a[aria-label="Contactos"]').textContent = 'Contactos';
+            document.querySelector('nav a[aria-label="Login"]').textContent = 'Login';
+
+        } else if (lang === 'en') {
+            // Simulação de troca de idioma para inglês
+            document.querySelector('nav a[aria-label="Início"]').textContent = 'Home';
+            document.querySelector('nav a[aria-label="Imóveis"]').textContent = 'Properties';
+            document.querySelector('nav a[aria-label="Remodelações"]').textContent = 'Renovations';
+            document.querySelector('nav a[aria-label="Contactos"]').textContent = 'Contact';
+            document.querySelector('nav a[aria-label="Login"]').textContent = 'Login';
+        }
+    }
+</script>
+    
 </body>
 
 </html>
