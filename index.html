@@ -59,7 +59,10 @@ main {
 
 .search-section {
     position: relative;
-    height: 100vh; /* Ajuste a altura para ocupar toda a altura da viewport */
+    height: 100vh; /* Ajusta a altura para ocupar toda a altura da viewport */
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
     overflow: hidden;
 }
 
@@ -108,10 +111,7 @@ main {
 }
 
 .search-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
     text-align: center;
     z-index: 2; /* Faz o menu de pesquisa ficar sobre o slider */
     color: #fff;
