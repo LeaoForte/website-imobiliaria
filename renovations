@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saber Lusitano</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css" integrity="sha384-rV2dbmMz9ATKxIep9tiCxS/Z9fNfEXFRQ4LsARq6Ig6e2LEFZDVH/xZfZxHXXnT" crossorigin="anonymous">
+    <style>
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.topbar {
+    background-color: #ffffff;
+    padding: 0 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+}
+
+.topbar img {
+    max-width: 150px;
+    height: auto;
+}
+
+nav {
+    text-align: right;
+    flex: 1; /* Faz a navegação ocupar o máximo de espaço disponível */
+}
+
+nav a {
+    color: #333;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ffcc00;
+}
+
+main {
+    flex: 1;
+    margin-top: 20px;
+    padding: 0; /* Remove o padding para ocupar toda a largura */
+}
+
+.search-section {
+    position: relative;
+    height: 100vh; /* Ajusta a altura para ocupar toda a altura da viewport */
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: left; /* Alinha à esquerda */
+    padding-left: 50px; /* Ajusta a posição mais à esquerda */
+    overflow: hidden;
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Faz o slider ficar atrás do menu de pesquisa */
+}
+
+.slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+.slider img.active {
+    display: block;
+}
+
+.slider .arrow {
+    position: absolute;
+    top: 50%;
+    width: 40px; /* Aumenta o tamanho das setas */
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    z-index: 2; /* Faz as setas ficar sobre o slider */
+}
+
+.slider .arrow.left {
+    left: 10px;
+}
+
+.slider .arrow.right {
+    right: 10px;
+}
+
+.search-content {
+    position: relative;
+    z-index: 2; /* Faz o menu de pesquisa ficar sobre o slider */
+    color: #fff;
+    display: flex;
+    flex-direction: column; /* Coloca os botões e a barra de pesquisa em coluna */
+    align-items: flex-start; /* Alinha os elementos à esquerda */
+    padding-left: 70px; /* Ajusta a posição mais à direita (aumentado de 50px para 70px) */
+}
+
+.search-content .btn-group {
+    margin-bottom: 10px; /* Adiciona um espaço entre os botões e a barra de pesquisa */
+}
+
+.search-content .btn {
+    background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border-radius: 0; /* Remove as bordas arredondadas para botões retangulares */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-content .btn.active {
+    background: linear-gradient(135deg, #218838 0%, #28a745 100%);
+    color: #fff;
+}
+
+.search-content .btn:hover {
+    background: linear-gradient(135deg, #1e7e34 0%, #1c7430 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.search-content input[type="text"] {
+    width: 140%; /* Ajusta a largura da barra de pesquisa */
+    max-width: 600px; /* Define um tamanho máximo para a barra de pesquisa */
+    padding: 15px;
+    font-size: 1.2em; /* Aumenta o tamanho da fonte */
+    border-radius: 0; /* Remove as bordas arredondadas */
+    border: 2px solid #28a745;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.language-selector img {
+    width: 24px; /* Define a largura das bandeiras */
+    height: 24px; /* Define a altura das bandeiras */
+    margin-left: 10px; /* Adiciona um espaço entre as bandeiras */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    transition: transform 0.2s ease; /* Adiciona uma transição suave para o efeito de hover */
+}
+
+.language-selector img:hover {
+    transform: scale(1.1); /* Aumenta ligeiramente o tamanho no hover */
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    background-color: #333;
+    padding: 15px;
+    color: #fff;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+@media (max-width: 768px) {
+    .search-content input[type="text"] {
+        width: 100%;
+        max-width: none; /* Remove o tamanho máximo para telas menores */
+    }
+
+    .search-content .btn {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+}
+    </style>
+</head>
+
+<body>
+
+    <div class="topbar">
+    <a href="index.html">
+        <img src="saberlusitano.png" alt="Logotipo Empresa">
+    </a>
+    <nav>
+        <a href="index.html" aria-label="Início">Início</a>
+        <a href="lista.html" aria-label="Imóveis">Imóveis</a>
+        <a href="remodel.html" aria-label="Remodelações">Remodelações</a>
+        <a href="contactos.html" aria-label="Contactos">Contactos</a>
+        <a href="login.html" aria-label="Login">Login</a>
+    </nav>
+    <div class="language-selector">
+        <img src="pt.png" alt="Português" onclick="setLanguage('pt')" title="Português">
+        <img src="uk.png" alt="English" onclick="setLanguage('en')" title="English">
+    </div>    
+</div>
+    
+    <main>
+       
+    </main>
+
+    <footer class="bg-dark text-light text-center py-3">
+        <p>&copy; 2023 Saber Lusitano. Todos os direitos reservados.</p>
+    </footer>
+    
+    <script>
+        function setLanguage(lang) {
+            localStorage.setItem('selectedLanguage', lang); // Armazena o idioma selecionado
+            const translations = {
+                pt: {
+                    'nav a[aria-label="Início"]': 'Início',
+                    'nav a[aria-label="Imóveis"]': 'Imóveis',
+                    'nav a[aria-label="Remodelações"]': 'Remodelações',
+                    'nav a[aria-label="Contactos"]': 'Contactos',
+                    'nav a[aria-label="Login"]': 'Login',
+                    'input[placeholder="Onde? (Zona ou Morada ou Código postal)"]': 'Onde? (Zona ou Morada ou Código postal)',
+                    'footer p': '© 2024 Saber Lusitano. Todos os direitos reservados.',
+                    '#btnComprar': 'Comprar',
+                    '#btnArrendar': 'Arrendar'
+                },
+                en: {
+                    'nav a[aria-label="Início"]': 'Home',
+                    'nav a[aria-label="Imóveis"]': 'Properties',
+                    'nav a[aria-label="Remodelações"]': 'Renovations',
+                    'nav a[aria-label="Contactos"]': 'Contact',
+                    'nav a[aria-label="Login"]': 'Login',
+                    'input[placeholder="Onde? (Zona ou Morada ou Código postal)"]': 'Where? (Area or Address or Postal Code)',
+                    'footer p': '© 2024 Saber Lusitano. All rights reserved.',
+                    '#btnComprar': 'Buy',
+                    '#btnArrendar': 'Rent'
+                }
+            };
+
+            const translation = translations[lang];
+
+            for (const selector in translation) {
+                const element = document.querySelector(selector);
+                if (element) {
+                    element.textContent = translation[selector];
+                }
+            }
+
+            // Atualiza os placeholders dos inputs
+            document.querySelectorAll('input[placeholder]').forEach(input => {
+                const placeholder = input.getAttribute('placeholder');
+                if (translations[lang][`input[placeholder="${placeholder}"]`]) {
+                    input.setAttribute('placeholder', translations[lang][`input[placeholder="${placeholder}"]`]);
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLanguage = localStorage.getItem('selectedLanguage') || 'pt'; // Padrão é português
+            setLanguage(savedLanguage); // Aplica a tradução
+        });
+    </script>
+
+</body>
+
+</html>
