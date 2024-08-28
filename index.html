@@ -62,7 +62,8 @@ main {
     height: 100vh; /* Ajusta a altura para ocupar toda a altura da viewport */
     display: flex;
     align-items: center; /* Centraliza verticalmente */
-    justify-content: center; /* Centraliza horizontalmente */
+    justify-content: left; /* Alinha à esquerda */
+    padding-left: 50px; /* Ajusta a posição mais à esquerda */
     overflow: hidden;
 }
 
@@ -112,21 +113,23 @@ main {
 
 .search-content {
     position: relative;
-    text-align: center;
     z-index: 2; /* Faz o menu de pesquisa ficar sobre o slider */
     color: #fff;
+    display: flex;
+    flex-direction: column; /* Coloca os botões e a barra de pesquisa em coluna */
+    align-items: flex-start; /* Alinha os elementos à esquerda */
 }
 
 .search-content .btn-group {
-    margin-top: 20px;
+    margin-bottom: 10px; /* Adiciona um espaço entre os botões e a barra de pesquisa */
 }
 
 .search-content .btn {
     background: linear-gradient(135deg, #28a745 0%, #218838 100%);
     border: none;
-    padding: 15px 30px;
+    padding: 10px 20px;
     font-size: 1.2em;
-    border-radius: 25px; /* Botões com bordas arredondadas */
+    border-radius: 0; /* Remove as bordas arredondadas para botões retangulares */
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -143,13 +146,12 @@ main {
 }
 
 .search-content input[type="text"] {
-    width: 160%; /* Aumenta a largura da barra de pesquisa */
-    max-width: 800px; /* Define um tamanho máximo para a barra de pesquisa */
+    width: 140%; /* Ajusta a largura da barra de pesquisa */
+    max-width: 600px; /* Define um tamanho máximo para a barra de pesquisa */
     padding: 15px;
     font-size: 1.2em; /* Aumenta o tamanho da fonte */
-    border-radius: 25px; /* Borda arredondada */
+    border-radius: 0; /* Remove as bordas arredondadas */
     border: 2px solid #28a745;
-    margin-top: 20px;
     background-color: #fff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -190,7 +192,6 @@ footer p {
         padding: 10px 20px;
     }
 }
-
     </style>
 </head>
 
