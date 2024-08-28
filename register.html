@@ -50,17 +50,18 @@
             color: #ffcc00;
         }
 
-        .language-selector {
-            display: flex;
-            align-items: center;
-        }
-
         .language-selector img {
             width: 24px;
-            height: 16px;
-            cursor: pointer;
+            height: 24px;
             margin-left: 10px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
         }
+
+        .language-selector img:hover {
+            transform: scale(1.1);
+        }
+
 
         .register-container {
             display: flex;
