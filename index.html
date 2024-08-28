@@ -7,7 +7,7 @@
     <title>Saber Lusitano</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css" integrity="sha384-rV2dbmMz9ATKxIep9tiCxS/Z9fNfEXFRQ4LsARq6Ig6e2LEFZDVH/xZfZxHXXnT" crossorigin="anonymous">
     <style>
-        body {
+body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -86,12 +86,12 @@ main {
 .slider .arrow {
     position: absolute;
     top: 50%;
-    width: 30px;
-    height: 30px;
+    width: 40px; /* Aumenta o tamanho das setas */
+    height: 40px;
     background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
     text-align: center;
-    line-height: 30px;
+    line-height: 40px;
     font-size: 24px;
     cursor: pointer;
     border-radius: 50%;
@@ -122,33 +122,36 @@ main {
 }
 
 .search-content .btn {
-    background-color: #fff;
-    border-color: #28a745;
+    background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+    border: none;
     padding: 15px 30px;
     font-size: 1.2em;
-    border-radius: 0; /* Botões retangulares */
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-    border: 2px solid;
+    border-radius: 25px; /* Botões com bordas arredondadas */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .search-content .btn.active {
-    background-color: #28a745;
+    background: linear-gradient(135deg, #218838 0%, #28a745 100%);
     color: #fff;
 }
 
 .search-content .btn:hover {
-    background-color: #ff4136;
-    border-color: #ff4136;
+    background: linear-gradient(135deg, #1e7e34 0%, #1c7430 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 
 .search-content input[type="text"] {
-    width: 80%;
+    width: 160%; /* Aumenta a largura da barra de pesquisa */
+    max-width: 800px; /* Define um tamanho máximo para a barra de pesquisa */
     padding: 15px;
-    font-size: 1em;
-    border-radius: 0; /* Borda reta */
+    font-size: 1.2em; /* Aumenta o tamanho da fonte */
+    border-radius: 25px; /* Borda arredondada */
     border: 2px solid #28a745;
     margin-top: 20px;
     background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 footer {
@@ -167,6 +170,7 @@ footer p {
 @media (max-width: 768px) {
     .search-content input[type="text"] {
         width: 100%;
+        max-width: none; /* Remove o tamanho máximo para telas menores */
     }
 
     .search-content .btn {
