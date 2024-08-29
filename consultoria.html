@@ -222,40 +222,55 @@
                     'service-title-6': 'Other Services',
                     'service-description-6': 'Advice on property purchase or rental, tax consulting, support in resume preparation, etc.',
                     'footer-text': '© 2024 Saber Lusitano. All rights reserved.',
-                 }
+                }
             };
-
+    
             // Save selected language to localStorage
             localStorage.setItem('language', lang);
-
+    
             // Apply translation
             const translation = translations[lang];
-
-            for (const selector in translation) {
-                const element = document.querySelector(selector);
-                if (element) {
-                    if (selector === 'h4') {
-                        element.innerHTML = translation[selector];
-                    } else {
-                        element.textContent = translation[selector];
-                    }
-                }
-            }
-
-            document.querySelectorAll('input[placeholder]').forEach(input => {
-                const placeholder = input.getAttribute('placeholder');
-                if (translations[lang][`input[placeholder="${placeholder}"]`]) {
-                    input.setAttribute('placeholder', translations[lang][`input[placeholder="${placeholder}"]`]);
+    
+            // Update navigation links
+            document.querySelectorAll('nav a').forEach(link => {
+                const ariaLabel = link.getAttribute('aria-label');
+                if (translation[`nav a[aria-label="${ariaLabel}"]`]) {
+                    link.textContent = translation[`nav a[aria-label="${ariaLabel}"]`];
                 }
             });
+    
+            // Update service titles and descriptions
+            document.querySelectorAll('.service-item').forEach((item, index) => {
+                const title = item.querySelector('h2');
+                const description = item.querySelector('p');
+                
+                if (title && description) {
+                    const titleKey = `service-title-${index + 1}`;
+                    const descriptionKey = `service-description-${index + 1}`;
+                    
+                    if (translation[titleKey]) {
+                        title.textContent = translation[titleKey];
+                    }
+                    if (translation[descriptionKey]) {
+                        description.textContent = translation[descriptionKey];
+                    }
+                }
+            });
+    
+            // Update footer text
+            const footer = document.querySelector('footer p');
+            if (footer) {
+                footer.textContent = translation['footer-text'];
+            }
         }
-
+    
         // Load the saved language on page load
         document.addEventListener('DOMContentLoaded', () => {
             const savedLanguage = localStorage.getItem('language') || 'pt';
             setLanguage(savedLanguage);
         });
     </script>
+    
 
 </body>
 
