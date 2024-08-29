@@ -17,7 +17,7 @@
             padding: 0;
             box-sizing: border-box;
             background-color: #f9f9f9;
-            color: #333;
+            color: #28a745;
         }
 
         .topbar {
@@ -42,7 +42,7 @@
         }
 
         nav a {
-            color: #333;
+            color: #000000;
             margin: 0 15px;
             text-decoration: none;
             font-weight: 600;
@@ -70,7 +70,7 @@
         }
 
         label {
-            color: #333;
+            color: #000000;
             font-weight: bold;
         }
 
@@ -151,13 +151,13 @@
 
         .contact-info h2 {
             font-size: 1.8em;
-            color: #333;
+            color: #28a745;
             margin-bottom: 20px;
         }
 
         .contact-info p {
             font-size: 1.2em;
-            color: #333;
+            color: #000000;
             margin: 10px 0;
         }
 
@@ -308,12 +308,13 @@
         </div>
         <div class="row" style="margin-top: 20px;">
             <div class="column contact-info">
-                <h2>Contacte-nos</h2>
-                <p>Email: suporte@saberlusitano.com</p>
-                <p>Telefone: +351 965 238 396</p>
-                <p>Endereço: Centro Comercial do Lumiar, Loja n.º 48 <br> Rua Professor João Barreira 1600-637 Lisboa</p>
+                <h2 id="contact-info-title">Contacte-nos</h2>
+                <p id="contact-info-email">Email: suporte@saberlusitano.com</p>
+                <p id="contact-info-phone">Telefone: +351 965 238 396</p>
+                <p id="contact-info-address">Endereço:<br> Centro Comercial do Lumiar, Loja n.º 48 <br> Rua Professor João Barreira 1600-637 Lisboa</p>
             </div>
             <div class="column map-container">
+                <h2 id="map-title">Localização</h2>
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.156257166148!2d-122.08424968507818!3d37.422065179825864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb5a6f1dfdbdb%3A0x19f7fabe2c9e128!2sGoogleplex!5e0!3m2!1sen!2spt!4v1580366595937!5m2!1sen!2spt"
                     width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
             </div>
@@ -321,17 +322,86 @@
     </div>
 
     <footer>
-        <p>&copy; 2024 Saber Lusitano - Todos os direitos reservados</p>
+        <p id="footer-text">© 2024 Saber Lusitano - Todos os direitos reservados</p>
     </footer>
 
     <script>
-        function setLanguage(language) {
-            var currentPage = window.location.pathname.split('/').pop();
-            var newPage = currentPage.replace(/(\w+)(\.html)/, language === 'pt' ? 'contactos.html' : 'contact.html');
-            window.location.href = newPage;
+        const translations = {
+            pt: {
+                'nav a[aria-label="Início"]': 'Início',
+                'nav a[aria-label="Imóveis"]': 'Imóveis',
+                'nav a[aria-label="Consultoria Migratória"]': 'Consultoria Migratória',
+                'nav a[aria-label="Remodelações"]': 'Remodelações',
+                'nav a[aria-label="Contactos"]': 'Contactos',
+                'nav a[aria-label="Login"]': 'Login',
+                'header-title': 'Pedido de Contacto',
+                'contact-info-title': 'Contacte-nos',
+                'contact-info-email': 'Email: suporte@saberlusitano.com',
+                'contact-info-phone': 'Telefone: +351 965 238 396',
+                'contact-info-address': 'Endereço:<br> Centro Comercial do Lumiar, Loja n.º 48 <br> Rua Professor João Barreira 1600-637 Lisboa',
+                'map-title': 'Localização',
+                'footer-text': '© 2024 Saber Lusitano - Todos os direitos reservados',
+                'send-button': 'Enviar',
+                'placeholder-name': 'Nome',
+                'placeholder-email': 'E-mail',
+                'placeholder-message': 'Mensagem'
+            },
+            en: {
+                'nav a[aria-label="Início"]': 'Home',
+                'nav a[aria-label="Imóveis"]': 'Properties',
+                'nav a[aria-label="Consultoria Migratória"]': 'Immigration Consulting',
+                'nav a[aria-label="Remodelações"]': 'Renovations',
+                'nav a[aria-label="Contactos"]': 'Contact',
+                'nav a[aria-label="Login"]': 'Login',
+                'header-title': 'Contact Request',
+                'contact-info-title': 'Contact Us',
+                'contact-info-email': 'Email: support@saberlusitano.com',
+                'contact-info-phone': 'Phone: +351 965 238 396',
+                'contact-info-address': 'Address:<br> Centro Comercial do Lumiar, Store No. 48 <br>Rua Professor João Barreira 1600-637 Lisbon',
+                'map-title': 'Location',
+                'footer-text': '© 2024 Saber Lusitano - All rights reserved',
+                'send-button': 'Send',
+                'placeholder-name': 'Name',
+                'placeholder-email': 'Email',
+                'placeholder-message': 'Message'
+            }
+        };
+
+        function setLanguage(lang) {
+            localStorage.setItem('language', lang);
+            applyTranslations(lang);
         }
-    </script>
-    <script>
+
+        function applyTranslations(lang) {
+            const translation = translations[lang];
+
+            document.querySelectorAll('nav a').forEach(link => {
+                const ariaLabel = link.getAttribute('aria-label');
+                const key = `nav a[aria-label="${ariaLabel}"]`;
+                if (translation[key]) {
+                    link.textContent = translation[key];
+                }
+            });
+
+            document.querySelector('#header-title').textContent = translation['header-title'];
+            document.querySelector('#contact-info-title').textContent = translation['contact-info-title'];
+            document.querySelector('#contact-info-email').textContent = translation['contact-info-email'];
+            document.querySelector('#contact-info-phone').textContent = translation['contact-info-phone'];
+            document.querySelector('#contact-info-address').innerHTML = translation['contact-info-address'];
+            document.querySelector('#map-title').textContent = translation['map-title'];
+            document.querySelector('#footer-text').textContent = translation['footer-text'];
+            document.querySelector('#send-button').textContent = translation['send-button'];
+            
+            document.querySelector('#nomeOrcamento').setAttribute('placeholder', translation['placeholder-name']);
+            document.querySelector('#emailOrcamento').setAttribute('placeholder', translation['placeholder-email']);
+            document.querySelector('#mensagemOrcamento').setAttribute('placeholder', translation['placeholder-message']);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLanguage = localStorage.getItem('language') || 'pt';
+            setLanguage(savedLanguage);
+        });
+
         let currentSlide = 0;
 
         function moveSlider(direction) {
@@ -339,7 +409,7 @@
             const totalSlides = slider.children.length;
 
             currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
-            slider.style.transform = translateX(-${currentSlide * 100}%);
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
         }
     </script>
 </body>
