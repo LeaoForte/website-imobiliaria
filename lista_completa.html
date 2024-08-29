@@ -1,1 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-br">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saber Lusitano - Lista de Serviços</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css" integrity="sha384-rV2dbmMz9ATKxIep9tiCxS/Z9fNfEXFRQ4LsARq6Ig6e2LEFZDVH/xZfZxHXXnT" crossorigin="anonymous">
+    <style>
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.topbar {
+    background-color: #ffffff;
+    padding: 0 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+}
+
+.topbar img {
+    max-width: 150px;
+    height: auto;
+}
+
+nav {
+    text-align: right;
+    flex: 1;
+}
+
+nav a {
+    color: #333;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ffcc00;
+}
+
+main {
+    flex: 1;
+    margin-top: 20px;
+    padding: 0;
+}
+
+.search-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding-left: 50px;
+    overflow: hidden;
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+.slider img.active {
+    display: block;
+}
+
+.slider .arrow {
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+.slider .arrow.left {
+    left: 10px;
+}
+
+.slider .arrow.right {
+    right: 10px;
+}
+
+.search-content {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 70px;
+}
+
+.search-content .btn-group {
+    margin-bottom: 10px;
+}
+
+.search-content .btn {
+    background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border-radius: 0;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-content .btn.active {
+    background: linear-gradient(135deg, #218838 0%, #28a745 100%);
+    color: #fff;
+}
+
+.search-content .btn:hover {
+    background: linear-gradient(135deg, #1e7e34 0%, #1c7430 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.search-content input[type="text"] {
+    width: 140%;
+    max-width: 600px;
+    padding: 15px;
+    font-size: 1.2em;
+    border-radius: 0;
+    border: 2px solid #28a745;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.language-selector img {
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.language-selector img:hover {
+    transform: scale(1.1);
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    background-color: #333;
+    padding: 15px;
+    color: #fff;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+@media (max-width: 768px) {
+    .search-content input[type="text"] {
+        width: 100%;
+        max-width: none;
+    }
+
+    .search-content .btn {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+}
+
+.service-section {
+    background-color: #fff;
+    padding: 60px 20px;
+    border-top: 5px solid #28a745;
+    border-bottom: 5px solid #28a745;
+}
+
+.service-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.service-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.service-item {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.service-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.service-item p {
+    font-size: 1.1em;
+    color: #555;
+}
+    </style>
+</head>
+
+<body>
+
+    <div class="topbar">
+        <a href="index.html">
+            <img src="saberlusitano.png" alt="Logotipo Empresa">
+        </a>
+        <nav>
+            <a href="index.html" aria-label="Início">Início</a>
+            <a href="lista.html" aria-label="Imóveis">Imóveis</a>
+            <a href="consultoria.html" aria-label="Consultoria Migratória">Consultoria Migratória</a>
+            <a href="remodel.html" aria-label="Remodelações">Remodelações</a>
+            <a href="contactos.html" aria-label="Contactos">Contactos</a>
+            <a href="login.html" aria-label="Login">Login</a>
+        </nav>
+        <div class="language-selector">
+            <img src="pt.png" alt="Português" onclick="setLanguage('pt')" title="Português">
+            <img src="uk.png" alt="English" onclick="setLanguage('en')" title="English">
+        </div>    
+    </div>
+
+    <main>
+        <section class="service-section">
+            <div class="container">
+                <h2>Consulte a Nossa Lista Completa de Serviços</h2>
+                <ul class="service-list">
+                    <li class="service-item"><h3>Abertura de Actividade</h3></li>
+                    <li class="service-item"><h3>Abertura de Conta Bancária</h3></li>
+                    <li class="service-item"><h3>Agendamento no AIMA</h3></li>
+                    <li class="service-item"><h3>Alojamento de curta duração</h3></li>
+                    <li class="service-item"><h3>Alteração da Representação Fiscal</h3></li>
+                    <li class="service-item"><h3>Alteração de Morada Fiscal</h3></li>
+                    <li class="service-item"><h3>Case Manager</h3></li>
+                    <li class="service-item"><h3>Consultoria Administrativa</h3></li>
+                    <li class="service-item"><h3>Consultoria Fiscal</h3></li>
+                    <li class="service-item"><h3>Consultoria Migratória</h3></li>
+                    <li class="service-item"><h3>Contratos de Utilidades</h3></li>
+                    <li class="service-item"><h3>Deslocação</h3></li>
+                    <li class="service-item"><h3>Elaboração do IRS</h3></li>
+                    <li class="service-item"><h3>Encerramento de Actividade</h3></li>
+                    <li class="service-item"><h3>Equivalência de Habilitações</h3></li>
+                    <li class="service-item"><h3>Estatuto Igualdade Direitos e Deveres</h3></li>
+                    <li class="service-item"><h3>Estatuto Residente Não Habitual</h3></li>
+                    <li class="service-item"><h3>Inscrição Consular</h3></li>
+                    <li class="service-item"><h3>Inscrição em Escola ou Universidade</h3></li>
+                    <li class="service-item"><h3>Inscrição em Ordens Profissionais</h3></li>
+                    <li class="service-item"><h3>Inscrição na Segurança Social</h3></li>
+                    <li class="service-item"><h3>Inscrição no Centro de Saúde</h3></li>
+                    <li class="service-item"><h3>Legalização de Documentos</h3></li>
+                    <li class="service-item"><h3>Manifestação de Interesse</h3></li>
+                    <li class="service-item"><h3>Obtenção Certificado de Registo de Cidadão da UE</h3></li>
+                    <li class="service-item"><h3>Obtenção de Atestado de Residência</h3></li>
+                    <li class="service-item"><h3>Obtenção de Cartão Europeu de Saúde</h3></li>
+                    <li class="service-item"><h3>Obtenção de NIF (Número de Identificação Fiscal)</h3></li>
+                    <li class="service-item"><h3>Obtenção de Visto de Estada Temporária</h3></li>
+                    <li class="service-item"><h3>Obtenção de Visto de Residência</h3></li>
+                    <li class="service-item"><h3>Obtenção do Registo Criminal</h3></li>
+                    <li class="service-item"><h3>Pack Empresas (NIF + AT + SS)</h3></li>
+                    <li class="service-item"><h3>Pack Família Consultores (NIF + RF)</h3></li>
+                    <li class="service-item"><h3>Pedido Prorrogação de Visto c/ Acomp AIMA</h3></li>
+                    <li class="service-item"><h3>Pick Up no Aeroporto</h3></li>
+                    <li class="service-item"><h3>Processo Administrativo</h3></li>
+                    <li class="service-item"><h3>Procura de Casa</h3></li>
+                    <li class="service-item"><h3>Procura de Casa - Corporate</h3></li>
+                    <li class="service-item"><h3>Reagrupamento Familiar Art. 98.1</h3></li>
+                    <li class="service-item"><h3>Reagrupamento Familiar Art. 98.2</h3></li>
+                    <li class="service-item"><h3>Representação Fiscal</h3></li>
+                    <li class="service-item"><h3>Reserva de Voo</h3></li>
+                    <li class="service-item"><h3>Reunião Familiar Art 15</h3></li>
+                    <li class="service-item"><h3>Scouting Trip</h3></li>
+                    <li class="service-item"><h3>Troca de Carta de Condução</h3></li>
+                    <li class="service-item"><h3>Visto de Trabalho</h3></li>
+                    <li class="service-item"><h3>Visto de Turismo</h3></li>
+                    <li class="service-item"><h3>Visto Schengen</h3></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-light text-center py-3">
+        <p>&copy; 2023 Saber Lusitano. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        function setLanguage(lang) {
+            localStorage.setItem('selectedLanguage', lang);
+            const translations = {
+                pt: {
+                    'nav a[aria-label="Início"]': 'Início',
+                    'nav a[aria-label="Imóveis"]': 'Imóveis',
+                    'nav a[aria-label="Consultoria Migratória"]': 'Consultoria Migratória',
+                    'nav a[aria-label="Remodelações"]': 'Remodelações',
+                    'nav a[aria-label="Contactos"]': 'Contactos',
+                    'nav a[aria-label="Login"]': 'Login',
+                    'footer p': '© 2024 Saber Lusitano. Todos os direitos reservados.'
+                },
+                en: {
+                    'nav a[aria-label="Início"]': 'Home',
+                    'nav a[aria-label="Imóveis"]': 'Properties',
+                    'nav a[aria-label="Consultoria Migratória"]': 'Immigration Consulting',
+                    'nav a[aria-label="Remodelações"]': 'Renovations',
+                    'nav a[aria-label="Contactos"]': 'Contact',
+                    'nav a[aria-label="Login"]': 'Login',
+                    'footer p': '© 2024 Saber Lusitano. All rights reserved.'
+                }
+            };
+
+            const translation = translations[lang];
+
+            for (const selector in translation) {
+                const element = document.querySelector(selector);
+                if (element) {
+                    element.textContent = translation[selector];
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLanguage = localStorage.getItem('selectedLanguage') || 'pt';
+            setLanguage(savedLanguage);
+        });
+    </script>
+
+</body>
+
+</html>
