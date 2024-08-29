@@ -7,6 +7,7 @@
     <title>Consultoria Migratória</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css" integrity="sha384-rV2dbmMz9ATKxIep9tiCxS/Z9fNfEXFRQ4LsARq6Ig6e2LEFZDVH/xZfZxHXXnT" crossorigin="anonymous">
     <style>
+        /* Seu CSS existente */
         body {
             display: flex;
             flex-direction: column;
@@ -130,6 +131,42 @@
             font-size: 1.1em;
             color: #555;
         }
+
+        /* Estiliza o botão no final da página */
+.btn-custom {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(45deg, #28a745, #218838); /* Gradiente verde */
+    border-radius: 50px;
+    border: 2px solid transparent;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidade */
+}
+
+.btn-custom:hover {
+    background: linear-gradient(45deg, #218838, #28a745); /* Inverte o gradiente no hover */
+    transform: scale(1.05); /* Aumenta ligeiramente o tamanho */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Aumenta a sombra no hover */
+}
+
+.btn-custom:active {
+    background: #1e7e34; /* Cor sólida no clique */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Diminui a sombra no clique */
+    transform: scale(0.95); /* Reduz ligeiramente o tamanho */
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-4 {
+    margin-top: 1.5rem; /* Espaço superior */
+}
     </style>
 </head>
 
@@ -193,8 +230,13 @@
                     </div>
                 </div>
             </div>
+            <!-- Botão para ver a lista completa de serviços -->
+            <div class="text-center mt-4">
+                <a href="lista.html" class="btn btn-custom">Ver a Lista Completa de Serviços</a>
+            </div>
         </div>
     </main>
+    
 
     <footer class="bg-dark text-light text-center py-3">
         <p data-translate="footer-text">&copy; 2024 Saber Lusitano. Todos os direitos reservados.</p>
@@ -256,8 +298,8 @@
             // Update navigation links
             document.querySelectorAll('nav a').forEach(link => {
                 const ariaLabel = link.getAttribute('aria-label');
-                if (translation[nav a[aria-label="${ariaLabel}"]]) {
-                    link.textContent = translation[nav a[aria-label="${ariaLabel}"]];
+                if (translation[`nav a[aria-label="${ariaLabel}"]`]) {
+                    link.textContent = translation[`nav a[aria-label="${ariaLabel}"]`];
                 }
             });
     
@@ -267,8 +309,8 @@
                 const description = item.querySelector('p');
                 
                 if (title && description) {
-                    const titleKey = service-title-${index + 1};
-                    const descriptionKey = service-description-${index + 1};
+                    const titleKey = `service-title-${index + 1}`;
+                    const descriptionKey = `service-description-${index + 1}`;
                     
                     if (translation[titleKey]) {
                         title.textContent = translation[titleKey];
@@ -292,7 +334,6 @@
             setLanguage(savedLanguage);
         });
     </script>
-    
 
 </body>
 
