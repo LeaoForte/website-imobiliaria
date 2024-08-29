@@ -254,8 +254,8 @@
             // Update navigation links
             document.querySelectorAll('nav a').forEach(link => {
                 const ariaLabel = link.getAttribute('aria-label');
-                if (translation[`nav a[aria-label="${ariaLabel}"]`]) {
-                    link.textContent = translation[`nav a[aria-label="${ariaLabel}"]`];
+                if (translation[nav a[aria-label="${ariaLabel}"]]) {
+                    link.textContent = translation[nav a[aria-label="${ariaLabel}"]];
                 }
             });
     
@@ -265,8 +265,8 @@
                 const description = item.querySelector('p');
                 
                 if (title && description) {
-                    const titleKey = `service-title-${index + 1}`;
-                    const descriptionKey = `service-description-${index + 1}`;
+                    const titleKey = service-title-${index + 1};
+                    const descriptionKey = service-description-${index + 1};
                     
                     if (translation[titleKey]) {
                         title.textContent = translation[titleKey];
