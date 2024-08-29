@@ -100,7 +100,6 @@
             background-color: #218838;
         }
 
-
         .language-selector img {
         width: 24px; /* Define a largura das bandeiras */
         height: 24px; /* Define a altura das bandeiras */
@@ -279,23 +278,19 @@
     </div>
 
     <div class="container">
-        <h1 class="text-center" id="header-title">Pedido de Contacto</h1>
-
         <div class="content-wrapper">
             <form action="/enviar-orcamento" method="post">
+                <h1 class="text-center" id="header-title">Pedido de Contacto</h1>
                 <div class="mb-3">
-                    <label for="nomeOrcamento" class="form-label" id="label-name">Nome:</label>
-                    <input type="text" class="form-control" id="nomeOrcamento" name="nomeOrcamento" required>
+                    <input type="text" class="form-control" id="nomeOrcamento" name="nomeOrcamento" placeholder="Nome" required>
                 </div>
                 <div class="mb-3">
-                    <label for="emailOrcamento" class="form-label" id="label-email">E-mail:</label>
-                    <input type="email" class="form-control" id="emailOrcamento" name="emailOrcamento" required>
+                    <input type="email" class="form-control" id="emailOrcamento" name="emailOrcamento" placeholder="E-mail" required>
                 </div>
                 <div class="mb-3">
-                    <label for="mensagemOrcamento" class="form-label" id="label-message">Mensagem:</label>
-                    <textarea class="form-control" id="mensagemOrcamento" name="mensagemOrcamento" rows="3" required></textarea>
+                    <textarea class="form-control" id="mensagemOrcamento" name="mensagemOrcamento" rows="3" placeholder="Mensagem"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary" id="submit-button">Enviar Formulário</button>
+                <button type="submit" class="btn btn-success" id="send-button">Enviar</button>
             </form>
 
             <div class="slider-container">
@@ -305,113 +300,46 @@
                     <img src="photologin3.jpg" alt="Imagem 3">
                 </div>
                 <div class="slider-nav">
-                    <button class="prev-slide" onclick="prevSlide()">&#10094;</button>
-                    <button class="next-slide" onclick="nextSlide()">&#10095;</button>
+                    <button class="prev" onclick="moveSlider(-1)">&#10094;</button>
+                    <button class="next" onclick="moveSlider(1)">&#10095;</button>
                 </div>
             </div>
         </div>
-
-        <div class="row" style="margin-top: 40px;">
+        <div class="row" style="margin-top: 20px;">
             <div class="column contact-info">
-                <h2 id="contact-header">Contactos</h2>
-                <p><strong id="phone-label">Telemóvel:</strong> <span id="phone-number">+351 965 238 396</span></p>
-                <p><strong id="email-label">E-mail:</strong> <span id="email-address">geral@saberlusitano.pt</span></p>
-                <p><strong id="address-label">Morada:</strong> <span id="address-details">Centro Comercial do Lumiar, Loja n.º 48<br>
-                    Rua Professor João Barreira<br>
-                    1600-637 Lisboa</span></p>
+                <h2>Contacte-nos</h2>
+                <p>Email: suporte@saberlusitano.com</p>
+                <p>Telefone: +351 965 238 396</p>
+                <p>Endereço: Rua Exemplo, 123</p>
             </div>
             <div class="column map-container">
-                <h2 id="map-header">Localização</h2>
-                <iframe src="https://embed.waze.com/iframe?zoom=12&lat=38.772199&lon=-9.160565&pin=1"width="400" height="400"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.156257166148!2d-122.08424968507818!3d37.422065179825864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb5a6f1dfdbdb%3A0x19f7fabe2c9e128!2sGoogleplex!5e0!3m2!1sen!2spt!4v1580366595937!5m2!1sen!2spt"
+                    width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
             </div>
         </div>
     </div>
 
     <footer>
-        <p id="footer-text">&copy; 2024 Saber Lusitano. Todos os direitos reservados.</p>
+        <p>&copy; 2024 Saber Lusitano - Todos os direitos reservados</p>
     </footer>
 
     <script>
+        function setLanguage(language) {
+            var currentPage = window.location.pathname.split('/').pop();
+            var newPage = currentPage.replace(/(\w+)(\.html)/, language === 'pt' ? 'contactos.html' : 'contact.html');
+            window.location.href = newPage;
+        }
+    </script>
+    <script>
         let currentSlide = 0;
-        const slides = document.querySelectorAll('.slider img');
 
-        function showSlide(index) {
+        function moveSlider(direction) {
             const slider = document.querySelector('.slider');
-            slider.style.transform = `translateX(-${index * 100}%)`;
+            const totalSlides = slider.children.length;
+
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            slider.style.transform = translateX(-${currentSlide * 100}%);
         }
-
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            showSlide(currentSlide);
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }
-
-        function setLanguage(lang) {
-            localStorage.setItem('selectedLanguage', lang); // Armazena o idioma selecionado
-            const translations = {
-                pt: {
-                    'header-title': 'Pedido de Contacto',
-                    'label-name': 'Nome:',
-                    'label-email': 'E-mail:',
-                    'label-message': 'Mensagem:',
-                    'submit-button': 'Enviar Formulário',
-                    'contact-header': 'Contactos',
-                    'phone-label': 'Telemóvel:',
-                    'phone-number': '+351 965 238 396',
-                    'email-label': 'E-mail:',
-                    'email-address': 'geral@saberlusitano.pt',
-                    'address-label': 'Morada:',
-                    'address-details': 'Centro Comercial do Lumiar, Loja n.º 48<br>Rua Professor João Barreira<br>1600-637 Lisboa',
-                    'map-header': 'Localização',
-                    'footer-text': '© 2024 Saber Lusitano. Todos os direitos reservados.',
-                    'nav-home': 'Início',
-                    'nav-properties': 'Imóveis',
-                    'nav-consulting': 'Consultoria Migratória',
-                    'nav-renovations': 'Remodelações',
-                    'nav-contact': 'Contactos',
-                    'nav-login': 'Login'
-                },
-                en: {
-                    'header-title': 'Contact Request',
-                    'label-name': 'Name:',
-                    'label-email': 'Email:',
-                    'label-message': 'Message:',
-                    'submit-button': 'Submit Form',
-                    'contact-header': 'Contact',
-                    'phone-label': 'Phone:',
-                    'phone-number': '+351 965 238 396',
-                    'email-label': 'Email:',
-                    'email-address': 'geral@saberlusitano.pt',
-                    'address-label': 'Address:',
-                    'address-details': 'Centro Comercial do Lumiar, Loja n.º 48<br>Rua Professor João Barreira<br>1600-637 Lisboa',
-                    'map-header': 'Location',
-                    'footer-text': '© 2024 Saber Lusitano. All rights reserved.',
-                    'nav-home': 'Home',
-                    'nav-properties': 'Properties',
-                    'nav-consulting': 'Immigration Consulting',
-                    'nav-renovations': 'Renovations',
-                    'nav-contact': 'Contact',
-                    'nav-login': 'Login'
-                }
-            };
-            const translation = translations[lang];
-
-            for (const key in translation) {
-                const element = document.getElementById(key);
-                if (element) {
-                    element.innerHTML = translation[key];
-                }
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const savedLanguage = localStorage.getItem('selectedLanguage') || 'pt'; // Padrão é português
-            setLanguage(savedLanguage); // Aplica a tradução
-        });
     </script>
 </body>
 </html>
