@@ -259,51 +259,45 @@
             <img src="saberlusitano.png" alt="Logotipo Empresa">
         </a>
         <nav>
-            <a href="index.html" aria-label="Início">Início</a>
-            <a href="lista.html" aria-label="Imóveis">Imóveis</a>
-            <a href="consultoria.html" aria-label="Consultoria Migratória">Consultoria Migratória</a>
-            <a href="remodel.html" aria-label="Remodelações">Remodelações</a>
-            <a href="contactos.html" aria-label="Contactos">Contactos</a>
-            <a href="login.html" aria-label="Login">Login</a>
+            <a href="index.html" aria-label="Início" id="nav-home">Início</a>
+            <a href="lista.html" aria-label="Imóveis" id="nav-properties">Imóveis</a>
+            <a href="consultoria.html" aria-label="Consultoria Migratória" id="nav-consulting">Consultoria Migratória</a>
+            <a href="remodel.html" aria-label="Remodelações" id="nav-renovations">Remodelações</a>
+            <a href="contactos.html" aria-label="Contactos" id="nav-contact">Contactos</a>
+            <a href="login.html" aria-label="Login" id="nav-login">Login</a>
         </nav>
         <div class="language-selector">
-        <img src="pt.png" alt="Português" onclick="setLanguage('pt')" title="Português">
-        <img src="uk.png" alt="English" onclick="setLanguage('en')" title="English">
-    </div>    
-</div>
+            <img src="pt.png" alt="Português" onclick="setLanguage('pt')" title="Português">
+            <img src="uk.png" alt="English" onclick="setLanguage('en')" title="English">
+        </div>    
+    </div>
 
     <div class="container">
-        <h1 class="text-center">Pedido de Contacto</h1>
+        <h1 class="text-center" id="header-title">Pedido de Contacto</h1>
 
-        <!-- Formulário e slider lado a lado -->
         <div class="content-wrapper">
-            <!-- Formulário para Orçamentos e Marcações -->
             <form action="/enviar-orcamento" method="post">
                 <div class="mb-3">
-                    <label for="nomeOrcamento" class="form-label">Nome:</label>
+                    <label for="nomeOrcamento" class="form-label" id="label-name">Nome:</label>
                     <input type="text" class="form-control" id="nomeOrcamento" name="nomeOrcamento" required>
                 </div>
                 <div class="mb-3">
-                    <label for="emailOrcamento" class="form-label">E-mail:</label>
+                    <label for="emailOrcamento" class="form-label" id="label-email">E-mail:</label>
                     <input type="email" class="form-control" id="emailOrcamento" name="emailOrcamento" required>
                 </div>
                 <div class="mb-3">
-                    <label for="mensagemOrcamento" class="form-label">Mensagem:</label>
-                    <textarea class="form-control" id="mensagemOrcamento" name="mensagemOrcamento" rows="3"
-                        required></textarea>
+                    <label for="mensagemOrcamento" class="form-label" id="label-message">Mensagem:</label>
+                    <textarea class="form-control" id="mensagemOrcamento" name="mensagemOrcamento" rows="3" required></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Enviar Formulário</button>
+                <button type="submit" class="btn btn-primary" id="submit-button">Enviar Formulário</button>
             </form>
 
-            <!-- Slider de fotos -->
             <div class="slider-container">
                 <div class="slider">
                     <img src="photologin.jpg" alt="Imagem 1">
                     <img src="photologin2.jpeg" alt="Imagem 2">
                     <img src="photologin3.jpg" alt="Imagem 3">
                 </div>
-
-                <!-- Botões de navegação -->
                 <div class="slider-nav">
                     <button class="prev-slide" onclick="prevSlide()">&#10094;</button>
                     <button class="next-slide" onclick="nextSlide()">&#10095;</button>
@@ -313,22 +307,22 @@
 
         <div class="row" style="margin-top: 40px;">
             <div class="column contact-info">
-                <h2>Contactos</h2>
-                <p><strong>Telemóvel:</strong> +351 965 238 396</p>
-                <p><strong>E-mail:</strong> geral@saberlusitano.pt</p>
-                <p><strong>Morada:</strong> Centro Comercial do Lumiar, Loja n.º 48<br>
+                <h2 id="contact-header">Contactos</h2>
+                <p><strong id="phone-label">Telemóvel:</strong> <span id="phone-number">+351 965 238 396</span></p>
+                <p><strong id="email-label">E-mail:</strong> <span id="email-address">geral@saberlusitano.pt</span></p>
+                <p><strong id="address-label">Morada:</strong> <span id="address-details">Centro Comercial do Lumiar, Loja n.º 48<br>
                     Rua Professor João Barreira<br>
-                    1600-637 Lisboa</p>
+                    1600-637 Lisboa</span></p>
             </div>
             <div class="column map-container">
-                <h2>Localização</h2>
+                <h2 id="map-header">Localização</h2>
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3110.629601721028!2d-9.165328815579423!3d38.77219870282696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1932eceda3a565%3A0x3fe6ccc48f06e39!2sCentro%20Comercial%20do%20Lumiar!5e0!3m2!1spt-PT!2spt!4v1724902605370!5m2!1spt-PT!2spt" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2024 Saber Lusitano. Todos os direitos reservados.</p>
+        <p id="footer-text">&copy; 2024 Saber Lusitano. Todos os direitos reservados.</p>
     </footer>
 
     <script>
@@ -349,73 +343,63 @@
             currentSlide = (currentSlide + 1) % slides.length;
             showSlide(currentSlide);
         }
-    </script>
-    <script>
+
         function setLanguage(lang) {
             localStorage.setItem('selectedLanguage', lang); // Armazena o idioma selecionado
             const translations = {
-               pt: {
-                    'nav a[aria-label="Início"]': 'Início',
-                    'nav a[aria-label="Imóveis"]': 'Imóveis',
-                    'nav a[aria-label="Consultoria Migratória"]': 'Consultoria Migratória',
-                    'nav a[aria-label="Remodelações"]': 'Remodelações',
-                    'nav a[aria-label="Contactos"]': 'Contactos',
-                    'nav a[aria-label="Login"]': 'Login',
-                    'footer p': '© 2024 Saber Lusitano. Todos os direitos reservados.',
-                    'h1': 'Pedido de Contacto',
-                    'label[for="nomeOrcamento"]': 'Nome:',
-                    'label[for="emailOrcamento"]': 'E-mail:',
-                    'label[for="mensagemOrcamento"]': 'Mensagem:',
-                    'button[type="submit"]': 'Enviar Formulário',
-                    'img[alt="Imagem 1"]': 'Imagem 1',
-                    'img[alt="Imagem 2"]': 'Imagem 2',
-                    'img[alt="Imagem 3"]': 'Imagem 3',
-                   'h2.contact-info': 'Contactos',
-                    'p.contact-info-tel': 'Telemóvel:',
-                    'p.contact-info-email': 'E-mail:',
-                    'p.contact-info-address': 'Morada:',
-                    'h2.map-container': 'Localização'
+                pt: {
+                    'header-title': 'Pedido de Contacto',
+                    'label-name': 'Nome:',
+                    'label-email': 'E-mail:',
+                    'label-message': 'Mensagem:',
+                    'submit-button': 'Enviar Formulário',
+                    'contact-header': 'Contactos',
+                    'phone-label': 'Telemóvel:',
+                    'phone-number': '+351 965 238 396',
+                    'email-label': 'E-mail:',
+                    'email-address': 'geral@saberlusitano.pt',
+                    'address-label': 'Morada:',
+                    'address-details': 'Centro Comercial do Lumiar, Loja n.º 48<br>Rua Professor João Barreira<br>1600-637 Lisboa',
+                    'map-header': 'Localização',
+                    'footer-text': '© 2024 Saber Lusitano. Todos os direitos reservados.',
+                    'nav-home': 'Início',
+                    'nav-properties': 'Imóveis',
+                    'nav-consulting': 'Consultoria Migratória',
+                    'nav-renovations': 'Remodelações',
+                    'nav-contact': 'Contactos',
+                    'nav-login': 'Login'
                 },
-                    
                 en: {
-                    'nav a[aria-label="Início"]': 'Home',
-                    'nav a[aria-label="Imóveis"]': 'Properties',
-                    'nav a[aria-label="Consultoria Migratória"]': 'Immigration Consulting',
-                    'nav a[aria-label="Remodelações"]': 'Renovations',
-                    'nav a[aria-label="Contactos"]': 'Contact',
-                    'nav a[aria-label="Login"]': 'Login',
-                    'footer p': '© 2024 Saber Lusitano. All rights reserved.',
-                    'h1': 'Contact Request',
-                    'label[for="nomeOrcamento"]': 'Name:',
-                    'label[for="emailOrcamento"]': 'Email:',
-                    'label[for="mensagemOrcamento"]': 'Message:',
-                    'button[type="submit"]': 'Submit Form',
-                    'img[alt="Imagem 1"]': 'Image 1',
-                    'img[alt="Imagem 2"]': 'Image 2',
-                    'img[alt="Imagem 3"]': 'Image 3',
-                    'h2.contact-info': 'Contact',
-                    'p.contact-info-tel': 'Phone:',
-                    'p.contact-info-email': 'Email:',
-                    'p.contact-info-address': 'Address:',
-                    'h2.map-container': 'Location'
+                    'header-title': 'Contact Request',
+                    'label-name': 'Name:',
+                    'label-email': 'Email:',
+                    'label-message': 'Message:',
+                    'submit-button': 'Submit Form',
+                    'contact-header': 'Contact',
+                    'phone-label': 'Phone:',
+                    'phone-number': '+351 965 238 396',
+                    'email-label': 'Email:',
+                    'email-address': 'geral@saberlusitano.pt',
+                    'address-label': 'Address:',
+                    'address-details': 'Centro Comercial do Lumiar, Loja n.º 48<br>Rua Professor João Barreira<br>1600-637 Lisboa',
+                    'map-header': 'Location',
+                    'footer-text': '© 2024 Saber Lusitano. All rights reserved.',
+                    'nav-home': 'Home',
+                    'nav-properties': 'Properties',
+                    'nav-consulting': 'Immigration Consulting',
+                    'nav-renovations': 'Renovations',
+                    'nav-contact': 'Contact',
+                    'nav-login': 'Login'
                 }
             };
             const translation = translations[lang];
 
-            for (const selector in translation) {
-                const element = document.querySelector(selector);
+            for (const key in translation) {
+                const element = document.getElementById(key);
                 if (element) {
-                    element.textContent = translation[selector];
+                    element.innerHTML = translation[key];
                 }
             }
-
-            // Atualiza os placeholders dos inputs
-            document.querySelectorAll('input[placeholder]').forEach(input => {
-                const placeholder = input.getAttribute('placeholder');
-                if (translations[lang][`input[placeholder="${placeholder}"]`]) {
-                    input.setAttribute('placeholder', translations[lang][`input[placeholder="${placeholder}"]`]);
-                }
-            });
         }
 
         document.addEventListener('DOMContentLoaded', function() {
