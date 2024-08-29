@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -185,27 +184,24 @@
         /* Estilos para o slider */
         .slider-container {
             width: 100%;
-            max-width: 100%;
+            max-width: 600px; /* Ajuste o tamanho máximo se necessário */
             position: relative;
             overflow: hidden;
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            flex-basis: 50%;
         }
 
         .slider {
             display: flex;
             transition: transform 0.5s ease-in-out;
+            width: 100%;
         }
 
         .slider img {
             width: 100%;
-            border-radius: 10px;
-        }
-
-        .slider img {
-            width: 600px;
-            height: 400px;
+            height: auto;
+            flex: 0 0 100%;
+            object-fit: cover; /* Isso garantirá que as imagens cubram o contêiner sem distorção */
         }
 
         /* Botões de navegação do slider */
@@ -245,7 +241,6 @@
 </head>
 
 <body>
-
     <div class="topbar">
         <a href="index.html">
             <img src="saberlusitano.png" alt="Logotipo Empresa">
@@ -344,7 +339,5 @@
             showSlide(currentSlide);
         }
     </script>
-
 </body>
-
 </html>
