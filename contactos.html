@@ -133,14 +133,6 @@
             padding: 40px;
         }
 
-        .contact-info,
-        .map-container {
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-        }
-
         .contact-info {
             text-align: center;
             display: flex;
@@ -162,14 +154,27 @@
         }
 
 
-         .map-container {
-            text-align: center;
+        /* Estilos ajustados para os campos de formulário e mapa */
+        input[type="text"],
+        input[type="email"],
+        textarea {
+        min-width: 300px;
+        max-width: 100%;
+        box-sizing: border-box;
         }
 
         .map-container iframe {
-            border: 0;
-            border-radius: 10px;
+        width: 100%;
+        height: 300px;
+        box-sizing: border-box;
         }
+
+        .content-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        }
+
 
         .row {
             display: flex;
@@ -177,7 +182,8 @@
         }
 
         .column {
-            flex: 1;
+        flex: 1;
+        min-width: 300px; /* Garante que as colunas não fiquem muito estreitas */
         }
 
         @media (max-width: 768px) {
