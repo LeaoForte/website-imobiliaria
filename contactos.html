@@ -7,7 +7,8 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Formulário de Contacto</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css" integrity="sha384-rV2dbmMz9ATKxIep9tiCxS/Z9fNfEXFRQ4LsARq6Ig6e2LEFZDVH/xZfZxHXXnT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css"
+        integrity="sha384-rV2dbmMz9ATKxIep9tiCxS/Z9fNfEXFRQ4LsARq6Ig6e2LEFZDVH/xZfZxHXXnT" crossorigin="anonymous">
     <style>
         body {
             display: flex;
@@ -22,36 +23,36 @@
         }
 
         .topbar {
-       background-color: #ffffff;
-        padding: 0 20px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        height: 80px;
+            background-color: #ffffff;
+            padding: 0 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
         }
 
-    .topbar img {
-    max-width: 150px;
-    height: auto;
+        .topbar img {
+            max-width: 150px;
+            height: auto;
         }
 
         nav {
-    text-align: right;
-    flex: 1; /* Faz a navegação ocupar o máximo de espaço disponível */
-    }
+            text-align: right;
+            flex: 1;
+        }
 
-    nav a {
-    color: #333;
-    margin: 0 15px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
-    }
+        nav a {
+            color: #333;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
 
-    nav a:hover {
-    color: #ffcc00;
-    }
+        nav a:hover {
+            color: #ffcc00;
+        }
 
         h1 {
             font-family: 'Roboto', sans-serif;
@@ -65,6 +66,7 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            flex-basis: 50%;
         }
 
         label {
@@ -81,7 +83,7 @@
             border-radius: 4px;
             padding: 10px;
             margin-top: 6px;
-            width: 95%; /* Reduzido para 95% */
+            width: 95%;
         }
 
         button {
@@ -113,18 +115,25 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 40px auto;
             padding: 40px;
         }
 
-        .contact-info {
-            background-color: #fff;
+        .contact-info,
+        .map-container {
+            background-color: #ffffff;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            margin-top: 30px;
+        }
+
+        .contact-info {
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
         }
 
         .contact-info h2 {
@@ -139,27 +148,18 @@
             margin: 10px 0;
         }
 
-        .map-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 30px;
-        }
-
-        .language-selector img {
-            width: 24px; /* Define a largura das bandeiras */
-            height: 24px; /* Define a altura das bandeiras */
-            margin-left: 10px; /* Adiciona um espaço entre as bandeiras */
-            cursor: pointer; /* Muda o cursor para indicar que é clicável */
-            transition: transform 0.2s ease; /* Adiciona uma transição suave para o efeito de hover */
-        }
-
-        .language-selector img:hover {
-            transform: scale(1.1); /* Aumenta ligeiramente o tamanho no hover */
-        }
-
-        iframe {
+        .map-container iframe {
             border: 0;
             border-radius: 10px;
+        }
+
+        .row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .column {
+            flex: 1;
         }
 
         @media (max-width: 768px) {
@@ -176,6 +176,70 @@
             .container {
                 padding: 20px;
             }
+
+            .row {
+                flex-direction: column;
+            }
+        }
+
+        /* Estilos para o slider */
+        .slider-container {
+            width: 100%;
+            max-width: 100%;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            flex-basis: 50%;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slider img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .slider img {
+            width: 600px;
+            height: 400px;
+        }
+
+        /* Botões de navegação do slider */
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+
+        .slider-nav button {
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            pointer-events: all;
+            border-radius: 50%;
+        }
+
+        /* Alinhamento horizontal do formulário e slider */
+        .content-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .content-wrapper form,
+        .content-wrapper .slider-container {
+            width: 50%;
         }
     </style>
 </head>
@@ -203,9 +267,9 @@
     <div class="container">
         <h1 class="text-center">Formulário de Contacto</h1>
 
-        <!-- Formulário para Orçamentos e Marcações -->
-        <div class="mb-5">
-            <h2>Marcações e Pedidos de Informação</h2>
+        <!-- Formulário e slider lado a lado -->
+        <div class="content-wrapper">
+            <!-- Formulário para Orçamentos e Marcações -->
             <form action="/enviar-orcamento" method="post">
                 <div class="mb-3">
                     <label for="nomeOrcamento" class="form-label">Nome:</label>
@@ -217,77 +281,68 @@
                 </div>
                 <div class="mb-3">
                     <label for="mensagemOrcamento" class="form-label">Mensagem:</label>
-                    <textarea class="form-control" id="mensagemOrcamento" name="mensagemOrcamento" rows="3" required></textarea>
+                    <textarea class="form-control" id="mensagemOrcamento" name="mensagemOrcamento" rows="3"
+                        required></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Enviar Formulário</button>
             </form>
+
+            <!-- Slider de fotos -->
+            <div class="slider-container">
+                <div class="slider">
+                    <img src="photologin.jpg" alt="Imagem 1">
+                    <img src="photologin2.jpg" alt="Imagem 2">
+                    <img src="photologin3.jpg" alt="Imagem 3">
+                </div>
+
+                <!-- Botões de navegação -->
+                <div class="slider-nav">
+                    <button class="prev-slide" onclick="prevSlide()">&#10094;</button>
+                    <button class="next-slide" onclick="nextSlide()">&#10095;</button>
+                </div>
+            </div>
         </div>
 
-        <!-- Informações de Contato da Empresa -->
-        <div class="contact-info">
-            <h2>Contacte-nos</h2>
-            <p><strong>Morada:</strong> Centro Comercial do Lumiar, Loja n.º 48 </p>
-            <p>Rua Professor João Barreira 1600-637 Lisboa</p>
-            <p>Portugal</p>
-            <p><strong>Telefone:</strong> +351 965 238 396</p>
-            <p><strong>Email:</strong> contacto@saberlusitano.com</p>
-        </div>
-
-        <!-- Google Maps -->
-        <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3110.629601721028!2d-9.165328815579423!3d38.77219870282696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1932eceda3a565%3A0x3fe6ccc48f06e39!2sCentro%20Comercial%20do%20Lumiar!5e0!3m2!1spt-PT!2spt!4v1724779881606!5m2!1spt-PT!2spt" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="row" style="margin-top: 40px;">
+            <div class="column contact-info">
+                <h2>Contactos</h2>
+                <p><strong>Telemóvel:</strong> +351 965 238 396</p>
+                <p><strong>E-mail:</strong> geral@saberlusitano.pt</p>
+                <p><strong>Morada:</strong> Centro Comercial do Lumiar, Loja n.º 48<br>
+                    Rua Professor João Barreira<br>
+                    1600-637 Lisboa</p>
+            </div>
+            <div class="column map-container">
+                <h2>Localização</h2>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3111.821720146155!2d-9.159598324297322!3d38.7603293088507!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd19336d7e77d16f%3A0x26d78ed74b91b998!2sCentro%20Comercial%20do%20Lumiar!5e0!3m2!1spt-PT!2spt!4v1693312690176!5m2!1spt-PT!2spt"
+                    width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
         </div>
     </div>
 
     <footer>
-        <p id="footer-text">&copy; 2024 Saber Lusitano. Todos os direitos reservados.</p>
+        <p>&copy; 2024 Saber Lusitano. Todos os direitos reservados.</p>
     </footer>
 
     <script>
-        function setLanguage(lang) {
-            // Armazena o idioma selecionado no localStorage
-            localStorage.setItem('selectedLanguage', lang);
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slider img');
 
-            if (lang === 'pt') {
-                document.querySelector('nav a[aria-label="Início"]').textContent = 'Início';
-                document.querySelector('nav a[aria-label="Imóveis"]').textContent = 'Imóveis';
-                document.querySelector('nav a[aria-label="Consultoria Migratória"]').textContent = 'Consultoria Migratória';
-                document.querySelector('nav a[aria-label="Remodelações"]').textContent = 'Remodelações';
-                document.querySelector('nav a[aria-label="Contactos"]').textContent = 'Contactos';
-                document.querySelector('nav a[aria-label="Login"]').textContent = 'Login';
-                document.querySelector('h1').textContent = 'Formulário de Contacto';
-                document.querySelector('h2').textContent = 'Marcações e Pedidos de Informação';
-                document.querySelector('label[for="nomeOrcamento"]').textContent = 'Nome:';
-                document.querySelector('label[for="emailOrcamento"]').textContent = 'E-mail:';
-                document.querySelector('label[for="mensagemOrcamento"]').textContent = 'Mensagem:';
-                document.querySelector('button').textContent = 'Enviar Formulário';
-                document.querySelector('.contact-info h2').textContent = 'Contacte-nos';
-                document.querySelector('.contact-info p').innerHTML = '<strong>Morada:</strong> Centro Comercial do Lumiar, Loja n.º 48 <br>Rua Professor João Barreira 1600-637 Lisboa<br>Portugal<br><strong>Telefone:</strong> +351 965 238 396<br><strong>Email:</strong> contacto@saberlusitano.com';
-                document.getElementById('footer-text').textContent = '© 2024 Saber Lusitano. Todos os direitos reservados.';
-            } else if (lang === 'en') {
-                document.querySelector('nav a[aria-label="Início"]').textContent = 'Home';
-                document.querySelector('nav a[aria-label="Imóveis"]').textContent = 'Properties';
-                document.querySelector('nav a[aria-label="Consultoria Migratória"]').textContent = 'Immigration Consulting';
-                document.querySelector('nav a[aria-label="Remodelações"]').textContent = 'Renovations';
-                document.querySelector('nav a[aria-label="Contactos"]').textContent = 'Contact';
-                document.querySelector('nav a[aria-label="Login"]').textContent = 'Login';
-                document.querySelector('h1').textContent = 'Contact Form';
-                document.querySelector('h2').textContent = 'Appointments and Information Requests';
-                document.querySelector('label[for="nomeOrcamento"]').textContent = 'Name:';
-                document.querySelector('label[for="emailOrcamento"]').textContent = 'Email:';
-                document.querySelector('label[for="mensagemOrcamento"]').textContent = 'Message:';
-                document.querySelector('button').textContent = 'Submit Form';
-                document.querySelector('.contact-info h2').textContent = 'Contact Us';
-                document.querySelector('.contact-info p').innerHTML = '<strong>Address:</strong> Centro Comercial do Lumiar, Store No. 48 <br>Rua Professor João Barreira 1600-637 Lisbon<br>Portugal<br><strong>Phone:</strong> +351 965 238 396<br><strong>Email:</strong> contacto@saberlusitano.com';
-                document.getElementById('footer-text').textContent = '© 2024 Saber Lusitano. All rights reserved.';
-            }
+        function showSlide(index) {
+            const slider = document.querySelector('.slider');
+            slider.style.transform = `translateX(-${index * 100}%)`;
         }
 
-        // Ao carregar a página, aplica o idioma salvo no localStorage
-        document.addEventListener('DOMContentLoaded', function() {
-            const savedLanguage = localStorage.getItem('selectedLanguage') || 'pt'; // Padrão é português
-            setLanguage(savedLanguage); // Aplica a tradução
-        });
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
     </script>
 
 </body>
