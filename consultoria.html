@@ -216,19 +216,26 @@
                     'service-title-6': 'Other Services',
                     'service-description-6': 'Advice on property purchase or rental, tax consulting, support in resume preparation, etc.',
                     'footer-text': '© 2024 Saber Lusitano. All rights reserved.',
-                }
+                 }
             };
 
+            // Save selected language to localStorage
+            localStorage.setItem('language', lang);
+
+            // Apply translation
             const translation = translations[lang];
 
             for (const selector in translation) {
-                const element = document.querySelector(`[data-translate="${selector}"]`);
+                const element = document.querySelector(selector);
                 if (element) {
-                    element.textContent = translation[selector];
+                    if (selector === 'h4') {
+                        element.innerHTML = translation[selector];
+                    } else {
+                        element.textContent = translation[selector];
+                    }
                 }
             }
 
-            // Atualiza os placeholders dos inputs
             document.querySelectorAll('input[placeholder]').forEach(input => {
                 const placeholder = input.getAttribute('placeholder');
                 if (translations[lang][`input[placeholder="${placeholder}"]`]) {
@@ -237,9 +244,10 @@
             });
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            const savedLanguage = localStorage.getItem('selectedLanguage') || 'pt'; // Padrão é português
-            setLanguage(savedLanguage); // Aplica a tradução
+        // Load the saved language on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLanguage = localStorage.getItem('language') || 'pt';
+            setLanguage(savedLanguage);
         });
     </script>
 
