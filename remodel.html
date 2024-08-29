@@ -36,7 +36,7 @@ body {
 
 nav {
     text-align: right;
-    flex: 1; /* Faz a navegação ocupar o máximo de espaço disponível */
+    flex: 1;
 }
 
 nav a {
@@ -54,16 +54,16 @@ nav a:hover {
 main {
     flex: 1;
     margin-top: 20px;
-    padding: 0; /* Remove o padding para ocupar toda a largura */
+    padding: 0;
 }
 
 .search-section {
     position: relative;
-    height: 100vh; /* Ajusta a altura para ocupar toda a altura da viewport */
+    height: 100vh;
     display: flex;
-    align-items: center; /* Centraliza verticalmente */
-    justify-content: left; /* Alinha à esquerda */
-    padding-left: 50px; /* Ajusta a posição mais à esquerda */
+    align-items: center;
+    justify-content: left;
+    padding-left: 50px;
     overflow: hidden;
 }
 
@@ -73,7 +73,7 @@ main {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1; /* Faz o slider ficar atrás do menu de pesquisa */
+    z-index: 1;
 }
 
 .slider img {
@@ -90,7 +90,7 @@ main {
 .slider .arrow {
     position: absolute;
     top: 50%;
-    width: 40px; /* Aumenta o tamanho das setas */
+    width: 40px;
     height: 40px;
     background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
@@ -100,7 +100,7 @@ main {
     cursor: pointer;
     border-radius: 50%;
     transform: translateY(-50%);
-    z-index: 2; /* Faz as setas ficar sobre o slider */
+    z-index: 2;
 }
 
 .slider .arrow.left {
@@ -113,16 +113,16 @@ main {
 
 .search-content {
     position: relative;
-    z-index: 2; /* Faz o menu de pesquisa ficar sobre o slider */
+    z-index: 2;
     color: #fff;
     display: flex;
-    flex-direction: column; /* Coloca os botões e a barra de pesquisa em coluna */
-    align-items: flex-start; /* Alinha os elementos à esquerda */
-    padding-left: 70px; /* Ajusta a posição mais à direita (aumentado de 50px para 70px) */
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 70px;
 }
 
 .search-content .btn-group {
-    margin-bottom: 10px; /* Adiciona um espaço entre os botões e a barra de pesquisa */
+    margin-bottom: 10px;
 }
 
 .search-content .btn {
@@ -130,7 +130,7 @@ main {
     border: none;
     padding: 10px 20px;
     font-size: 1.2em;
-    border-radius: 0; /* Remove as bordas arredondadas para botões retangulares */
+    border-radius: 0;
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -147,26 +147,26 @@ main {
 }
 
 .search-content input[type="text"] {
-    width: 140%; /* Ajusta a largura da barra de pesquisa */
-    max-width: 600px; /* Define um tamanho máximo para a barra de pesquisa */
+    width: 140%;
+    max-width: 600px;
     padding: 15px;
-    font-size: 1.2em; /* Aumenta o tamanho da fonte */
-    border-radius: 0; /* Remove as bordas arredondadas */
+    font-size: 1.2em;
+    border-radius: 0;
     border: 2px solid #28a745;
     background-color: #fff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .language-selector img {
-    width: 24px; /* Define a largura das bandeiras */
-    height: 24px; /* Define a altura das bandeiras */
-    margin-left: 10px; /* Adiciona um espaço entre as bandeiras */
-    cursor: pointer; /* Muda o cursor para indicar que é clicável */
-    transition: transform 0.2s ease; /* Adiciona uma transição suave para o efeito de hover */
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
 }
 
 .language-selector img:hover {
-    transform: scale(1.1); /* Aumenta ligeiramente o tamanho no hover */
+    transform: scale(1.1);
 }
 
 footer {
@@ -185,7 +185,7 @@ footer p {
 @media (max-width: 768px) {
     .search-content input[type="text"] {
         width: 100%;
-        max-width: none; /* Remove o tamanho máximo para telas menores */
+        max-width: none;
     }
 
     .search-content .btn {
@@ -193,40 +193,104 @@ footer p {
         padding: 10px 20px;
     }
 }
+
+.service-section {
+    background-color: #fff;
+    padding: 60px 20px;
+    border-top: 5px solid #28a745;
+    border-bottom: 5px solid #28a745;
+}
+
+.service-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.service-box {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.service-box h3 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.service-box p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #555;
+}
     </style>
 </head>
 
 <body>
 
     <div class="topbar">
-    <a href="index.html">
-        <img src="saberlusitano.png" alt="Logotipo Empresa">
-    </a>
-    <nav>
-        <a href="index.html" aria-label="Início">Início</a>
-        <a href="lista.html" aria-label="Imóveis">Imóveis</a>
-        <a href="consultoria.html" aria-label="Consultoria Migratória">Consultoria Migratória</a>
-        <a href="remodel.html" aria-label="Remodelações">Remodelações</a>
-        <a href="contactos.html" aria-label="Contactos">Contactos</a>
-        <a href="login.html" aria-label="Login">Login</a>
-    </nav>
-    <div class="language-selector">
-        <img src="pt.png" alt="Português" onclick="setLanguage('pt')" title="Português">
-        <img src="uk.png" alt="English" onclick="setLanguage('en')" title="English">
-    </div>    
-</div>
-    
+        <a href="index.html">
+            <img src="saberlusitano.png" alt="Logotipo Empresa">
+        </a>
+        <nav>
+            <a href="index.html" aria-label="Início">Início</a>
+            <a href="lista.html" aria-label="Imóveis">Imóveis</a>
+            <a href="consultoria.html" aria-label="Consultoria Migratória">Consultoria Migratória</a>
+            <a href="remodel.html" aria-label="Remodelações">Remodelações</a>
+            <a href="contactos.html" aria-label="Contactos">Contactos</a>
+            <a href="login.html" aria-label="Login">Login</a>
+        </nav>
+        <div class="language-selector">
+            <img src="pt.png" alt="Português" onclick="setLanguage('pt')" title="Português">
+            <img src="uk.png" alt="English" onclick="setLanguage('en')" title="English">
+        </div>    
+    </div>
+
     <main>
-       
+        <section class="service-section">
+            <div class="container">
+                <h2>Serviço de Remodelações</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="service-box">
+                            <h3>Remodelações de Interiores</h3>
+                            <p>Transforme seus espaços com nossas remodelações de interiores, desde a renovação de salas e quartos até a reforma de cozinhas e banheiros. Garantimos qualidade e um acabamento que atende às suas expectativas.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="service-box">
+                            <h3>Remodelações Exteriores</h3>
+                            <p>Melhore a aparência e a funcionalidade de sua propriedade com remodelações exteriores. Trabalhamos em fachadas, jardins e áreas de lazer para proporcionar um ambiente mais moderno e atraente.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="service-box">
+                            <h3>Reparos e Manutenção</h3>
+                            <p>Nossos serviços incluem reparos e manutenção para garantir que seu imóvel esteja sempre em excelente estado. Realizamos pequenos ajustes e grandes reformas para atender às suas necessidades.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="service-box">
+                            <h3>Consultoria Personalizada</h3>
+                            <p>Oferecemos consultoria personalizada para ajudar você a planejar e executar suas remodelações. Desde a escolha de materiais até o planejamento de espaços, estamos aqui para garantir que seu projeto seja um sucesso.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="bg-dark text-light text-center py-3">
         <p>&copy; 2023 Saber Lusitano. Todos os direitos reservados.</p>
     </footer>
-    
+
     <script>
         function setLanguage(lang) {
-            localStorage.setItem('selectedLanguage', lang); // Armazena o idioma selecionado
+            localStorage.setItem('selectedLanguage', lang);
             const translations = {
                 pt: {
                     'nav a[aria-label="Início"]': 'Início',
@@ -235,10 +299,7 @@ footer p {
                     'nav a[aria-label="Remodelações"]': 'Remodelações',
                     'nav a[aria-label="Contactos"]': 'Contactos',
                     'nav a[aria-label="Login"]': 'Login',
-                    'input[placeholder="Onde? (Zona ou Morada ou Código postal)"]': 'Onde? (Zona ou Morada ou Código postal)',
                     'footer p': '© 2024 Saber Lusitano. Todos os direitos reservados.',
-                    '#btnComprar': 'Comprar',
-                    '#btnArrendar': 'Arrendar'
                 },
                 en: {
                     'nav a[aria-label="Início"]': 'Home',
@@ -247,10 +308,7 @@ footer p {
                     'nav a[aria-label="Remodelações"]': 'Renovations',
                     'nav a[aria-label="Contactos"]': 'Contact',
                     'nav a[aria-label="Login"]': 'Login',
-                    'input[placeholder="Onde? (Zona ou Morada ou Código postal)"]': 'Where? (Area or Address or Postal Code)',
                     'footer p': '© 2024 Saber Lusitano. All rights reserved.',
-                    '#btnComprar': 'Buy',
-                    '#btnArrendar': 'Rent'
                 }
             };
 
@@ -263,7 +321,6 @@ footer p {
                 }
             }
 
-            // Atualiza os placeholders dos inputs
             document.querySelectorAll('input[placeholder]').forEach(input => {
                 const placeholder = input.getAttribute('placeholder');
                 if (translations[lang][`input[placeholder="${placeholder}"]`]) {
@@ -273,8 +330,8 @@ footer p {
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            const savedLanguage = localStorage.getItem('selectedLanguage') || 'pt'; // Padrão é português
-            setLanguage(savedLanguage); // Aplica a tradução
+            const savedLanguage = localStorage.getItem('selectedLanguage') || 'pt';
+            setLanguage(savedLanguage);
         });
     </script>
 
