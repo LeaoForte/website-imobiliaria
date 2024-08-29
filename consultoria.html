@@ -133,40 +133,40 @@
         }
 
         /* Estiliza o botão no final da página */
-.btn-custom {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    color: #fff;
-    background: linear-gradient(45deg, #28a745, #218838); /* Gradiente verde */
-    border-radius: 50px;
-    border: 2px solid transparent;
-    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidade */
-}
+        .btn-custom {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            background: linear-gradient(45deg, #28a745, #218838); /* Gradiente verde */
+            border-radius: 50px;
+            border: 2px solid transparent;
+            transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidade */
+        }
 
-.btn-custom:hover {
-    background: linear-gradient(45deg, #218838, #28a745); /* Inverte o gradiente no hover */
-    transform: scale(1.05); /* Aumenta ligeiramente o tamanho */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Aumenta a sombra no hover */
-}
+        .btn-custom:hover {
+            background: linear-gradient(45deg, #218838, #28a745); /* Inverte o gradiente no hover */
+            transform: scale(1.05); /* Aumenta ligeiramente o tamanho */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Aumenta a sombra no hover */
+        }
 
-.btn-custom:active {
-    background: #1e7e34; /* Cor sólida no clique */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Diminui a sombra no clique */
-    transform: scale(0.95); /* Reduz ligeiramente o tamanho */
-}
+        .btn-custom:active {
+            background: #1e7e34; /* Cor sólida no clique */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Diminui a sombra no clique */
+            transform: scale(0.95); /* Reduz ligeiramente o tamanho */
+        }
 
-.text-center {
-    text-align: center;
-}
+        .text-center {
+            text-align: center;
+        }
 
-.mt-4 {
-    margin-top: 1.5rem; /* Espaço superior */
-}
+        .mt-4 {
+            margin-top: 1.5rem; /* Espaço superior */
+        }
     </style>
 </head>
 
@@ -193,10 +193,10 @@
     <main>
         <div class="container">
             <div class="intro-text">
-                <h1>Connosco mudar-se para Portugal não podia ser mais fácil!</h1>
-                <p>Tratamos de todos os assuntos desde o primeiro dia! Todos os pré-requisitos, vistos, documentos, numero de contribuinte Português, abertura de conta bancária,</p>
-                <p>transportes, inscrição no serviço nacional de saúde e/ou escolas. Tudo o que precisa para viver em Portugal.</p>
-                <p>Enquanto você faz as suas malas, nós tratamos do resto!</p>
+                <h1 data-translate="intro-title">Connosco mudar-se para Portugal não podia ser mais fácil!</h1>
+                <p data-translate="intro-text-1">Tratamos de todos os assuntos desde o primeiro dia! Todos os pré-requisitos, vistos, documentos, numero de contribuinte Português, abertura de conta bancária,</p>
+                <p data-translate="intro-text-2">transportes, inscrição no serviço nacional de saúde e/ou escolas. Tudo o que precisa para viver em Portugal.</p>
+                <p data-translate="intro-text-3">Enquanto você faz as suas malas, nós tratamos do resto!</p>
             </div>
             <div class="row">
                 <div class="column">
@@ -232,11 +232,10 @@
             </div>
             <!-- Botão para ver a lista completa de serviços -->
             <div class="text-center mt-4">
-                <a href="lista.html" class="btn btn-custom">Ver a Lista Completa de Serviços</a>
+                <a href="lista.html" class="btn btn-custom" data-translate="view-services">Ver a Lista Completa de Serviços</a>
             </div>
         </div>
     </main>
-    
 
     <footer class="bg-dark text-light text-center py-3">
         <p data-translate="footer-text">&copy; 2024 Saber Lusitano. Todos os direitos reservados.</p>
@@ -246,12 +245,11 @@
         function setLanguage(lang) {
             const translations = {
                 pt: {
-                    'nav a[aria-label="Início"]': 'Início',
-                    'nav a[aria-label="Imóveis"]': 'Imóveis',
-                    'nav a[aria-label="Consultoria Migratória"]': 'Consultoria Migratória',
-                    'nav a[aria-label="Remodelações"]': 'Remodelações',
-                    'nav a[aria-label="Contactos"]': 'Contactos',
-                    'nav a[aria-label="Login"]': 'Login',
+                    'intro-title': 'Connosco mudar-se para Portugal não podia ser mais fácil!',
+                    'intro-text-1': 'Tratamos de todos os assuntos desde o primeiro dia! Todos os pré-requisitos, vistos, documentos, numero de contribuinte Português, abertura de conta bancária,',
+                    'intro-text-2': 'transportes, inscrição no serviço nacional de saúde e/ou escolas. Tudo o que precisa para viver em Portugal.',
+                    'intro-text-3': 'Enquanto você faz as suas malas, nós tratamos do resto!',
+                    'view-services': 'Ver a Lista Completa de Serviços',
                     'service-title-1': 'Vistos',
                     'service-description-1': 'Estudante, nômade digital, empresário, busca de emprego, rendimentos passivos e suporte para a família.',
                     'service-title-2': 'Nacionalidade Portuguesa',
@@ -267,12 +265,11 @@
                     'footer-text': '© 2024 Saber Lusitano. Todos os direitos reservados.',
                 },
                 en: {
-                    'nav a[aria-label="Início"]': 'Home',
-                    'nav a[aria-label="Imóveis"]': 'Properties',
-                    'nav a[aria-label="Consultoria Migratória"]': 'Immigration Consulting',
-                    'nav a[aria-label="Remodelações"]': 'Renovations',
-                    'nav a[aria-label="Contactos"]': 'Contact',
-                    'nav a[aria-label="Login"]': 'Login',
+                    'intro-title': 'With us, moving to Portugal couldn’t be easier!',
+                    'intro-text-1': 'We handle everything from day one! All prerequisites, visas, documents, Portuguese tax number, bank account opening,',
+                    'intro-text-2': 'transportation, registration with the national health service and/or schools. Everything you need to live in Portugal.',
+                    'intro-text-3': 'While you pack your bags, we handle the rest!',
+                    'view-services': 'See the Full List of Services',
                     'service-title-1': 'Visas',
                     'service-description-1': 'Student, digital nomad, entrepreneur, job search, passive income, and family support.',
                     'service-title-2': 'Portuguese Nationality',
@@ -288,30 +285,31 @@
                     'footer-text': '© 2024 Saber Lusitano. All rights reserved.',
                 }
             };
-    
+
             // Save selected language to localStorage
             localStorage.setItem('language', lang);
-    
+
             // Apply translation
             const translation = translations[lang];
-    
+
             // Update navigation links
             document.querySelectorAll('nav a').forEach(link => {
                 const ariaLabel = link.getAttribute('aria-label');
-                if (translation[`nav a[aria-label="${ariaLabel}"]`]) {
-                    link.textContent = translation[`nav a[aria-label="${ariaLabel}"]`];
+                const key = `nav a[aria-label="${ariaLabel}"]`;
+                if (translation[key]) {
+                    link.textContent = translation[key];
                 }
             });
-    
+
             // Update service titles and descriptions
             document.querySelectorAll('.service-item').forEach((item, index) => {
                 const title = item.querySelector('h2');
                 const description = item.querySelector('p');
-                
+
                 if (title && description) {
                     const titleKey = `service-title-${index + 1}`;
                     const descriptionKey = `service-description-${index + 1}`;
-                    
+
                     if (translation[titleKey]) {
                         title.textContent = translation[titleKey];
                     }
@@ -320,14 +318,28 @@
                     }
                 }
             });
-    
+
             // Update footer text
             const footer = document.querySelector('footer p');
             if (footer) {
                 footer.textContent = translation['footer-text'];
             }
+
+            // Update intro text
+            document.querySelectorAll('.intro-text [data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translation[key]) {
+                    element.textContent = translation[key];
+                }
+            });
+
+            // Update button text
+            const button = document.querySelector('.btn-custom[data-translate="view-services"]');
+            if (button) {
+                button.textContent = translation['view-services'];
+            }
         }
-    
+
         // Load the saved language on page load
         document.addEventListener('DOMContentLoaded', () => {
             const savedLanguage = localStorage.getItem('language') || 'pt';
