@@ -5,9 +5,12 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Contactos</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css"
-        integrity="sha384-rV2dbmMz9ATKxIep9tiCxS/Z9fNfEXFRQ4LsARq6Ig6e2LEFZDVH/xZfZxHXXnT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css" integrity="sha384-rV2dbmMz9ATKxIep9tiCxS/Z9fNfEXFRQ4LsARq6Ig6e2LEFZDVH/xZfZxHXXnT" crossorigin="anonymous">
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             display: flex;
             flex-direction: column;
@@ -15,7 +18,6 @@
             font-family: 'Helvetica Neue', sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
             background-color: #f9f9f9;
             color: #28a745;
         }
@@ -84,6 +86,7 @@
             padding: 10px;
             margin-top: 6px;
             width: 95%;
+            box-sizing: border-box;
         }
 
         button {
@@ -102,15 +105,15 @@
         }
 
         .language-selector img {
-        width: 24px; /* Define a largura das bandeiras */
-        height: 24px; /* Define a altura das bandeiras */
-        margin-left: 10px; /* Adiciona um espaço entre as bandeiras */
-        cursor: pointer; /* Muda o cursor para indicar que é clicável */
-        transition: transform 0.2s ease; /* Adiciona uma transição suave para o efeito de hover */
+            width: 24px; /* Define a largura das bandeiras */
+            height: 24px; /* Define a altura das bandeiras */
+            margin-left: 10px; /* Adiciona um espaço entre as bandeiras */
+            cursor: pointer; /* Muda o cursor para indicar que é clicável */
+            transition: transform 0.2s ease; /* Adiciona uma transição suave para o efeito de hover */
         }
 
         .language-selector img:hover {
-        transform: scale(1.1); /* Aumenta ligeiramente o tamanho no hover */
+            transform: scale(1.1); /* Aumenta ligeiramente o tamanho no hover */
         }
 
         footer {
@@ -133,6 +136,14 @@
             padding: 40px;
         }
 
+        .contact-info,
+        .map-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
         .contact-info {
             text-align: center;
             display: flex;
@@ -153,28 +164,17 @@
             margin: 10px 0;
         }
 
-
-        /* Estilos ajustados para os campos de formulário e mapa */
-        input[type="text"],
-        input[type="email"],
-        textarea {
-        min-width: 300px;
-        max-width: 100%;
-        box-sizing: border-box;
+        .map-container {
+            text-align: center;
         }
 
         .map-container iframe {
-        width: 100%;
-        height: 300px;
-        box-sizing: border-box;
+            width: 100%;
+            height: 300px;
+            border: 0;
+            border-radius: 10px;
+            box-sizing: border-box;
         }
-
-        .content-wrapper {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        }
-
 
         .row {
             display: flex;
@@ -182,8 +182,8 @@
         }
 
         .column {
-        flex: 1;
-        min-width: 300px; /* Garante que as colunas não fiquem muito estreitas */
+            flex: 1;
+            min-width: 300px; /* Garante que as colunas não fiquem muito estreitas */
         }
 
         @media (max-width: 768px) {
@@ -289,15 +289,18 @@
             <form action="/enviar-orcamento" method="post">
                 <h1 class="text-center" id="header-title">Pedido de Contacto</h1>
                 <div class="mb-3">
-                    <input type="text" class="form-control" id="nomeOrcamento" name="nomeOrcamento" placeholder="Nome" required>
+                    <label for="name" class="form-label" id="label-name">Nome</label>
+                    <input type="text" id="name" name="name" required placeholder="Nome">
                 </div>
                 <div class="mb-3">
-                    <input type="email" class="form-control" id="emailOrcamento" name="emailOrcamento" placeholder="E-mail" required>
+                    <label for="email" class="form-label" id="label-email">Email</label>
+                    <input type="email" id="email" name="email" required placeholder="E-mail">
                 </div>
                 <div class="mb-3">
-                    <textarea class="form-control" id="mensagemOrcamento" name="mensagemOrcamento" rows="3" placeholder="Mensagem"></textarea>
+                    <label for="message" class="form-label" id="label-message">Mensagem</label>
+                    <textarea id="message" name="message" rows="4" required placeholder="Mensagem"></textarea>
                 </div>
-                <button type="submit" class="btn btn-success" id="send-button">Enviar</button>
+                <button type="submit" id="send-button">Enviar</button>
             </form>
 
             <div class="slider-container">
@@ -307,30 +310,59 @@
                     <img src="photologin3.jpg" alt="Imagem 3">
                 </div>
                 <div class="slider-nav">
-                    <button class="prev" onclick="moveSlider(-1)">&#10094;</button>
-                    <button class="next" onclick="moveSlider(1)">&#10095;</button>
+                    <button id="prev-slide">&lt;</button>
+                    <button id="next-slide">&gt;</button>
                 </div>
             </div>
         </div>
-        <div class="row" style="margin-top: 20px;">
-            <div class="column contact-info">
-                <h2 id="contact-info-title">Contacte-nos</h2>
-                <p id="contact-info-email">Email: suporte@saberlusitano.com</p>
-                <p id="contact-info-phone">Telefone: +351 965 238 396</p>
-                <p id="contact-info-address">Endereço:<br> Centro Comercial do Lumiar, Loja n.º 48 <br> Rua Professor João Barreira 1600-637 Lisboa</p>
-            </div>
-            <div class="column map-container">
-                <h2 id="map-title">Localização</h2>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3110.6296030761578!2d-9.163140424205809!3d38.77219867175103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1932eceda3a565%3A0x3fe6ccc48f06e39!2sCentro%20Comercial%20do%20Lumiar!5e0!3m2!1spt-PT!2spt!4v1724955191749!5m2!1spt-PT!2spt" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
+
+        <div class="contact-info">
+            <h2 id="contact-info-title">Contacte-nos</h2>
+            <p id="contact-info-phone">Telefone: +351 965 238 396</p>
+            <p id="contact-info-email">Email: yondascope@gmail.com</p>
+            <p id="contact-info-address">Endereço:<br> Centro Comercial do Lumiar, Loja n.º 48 <br>Rua Professor João Barreira 1600-637 Lisboa</p>
+        </div>
+
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3110.6296030761578!2d-9.163140424205809!3d38.77219867175103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1932eceda3a565%3A0x3fe6ccc48f06e39!2sCentro%20Comercial%20do%20Lumiar!5e0!3m2!1spt-PT!2spt!4v1724955191749!5m2!1spt-PT!2spt" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
 
     <footer>
-        <p id="footer-text">© 2024 Saber Lusitano - Todos os direitos reservados</p>
+        <p id="footer-text">&copy; 2024 Saber Lusitano. Todos os direitos reservados.</p>
     </footer>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const slider = document.querySelector('.slider');
+            const prevSlideButton = document.getElementById('prev-slide');
+            const nextSlideButton = document.getElementById('next-slide');
+            let index = 0;
+
+            function showSlide(newIndex) {
+                const slides = document.querySelectorAll('.slider img');
+                const totalSlides = slides.length;
+                if (newIndex >= totalSlides) {
+                    index = 0;
+                } else if (newIndex < 0) {
+                    index = totalSlides - 1;
+                } else {
+                    index = newIndex;
+                }
+                slider.style.transform = `translateX(-${index * 100}%)`;
+            }
+
+            prevSlideButton.addEventListener('click', () => {
+                showSlide(index - 1);
+            });
+
+            nextSlideButton.addEventListener('click', () => {
+                showSlide(index + 1);
+            });
+
+            showSlide(index); // Inicializa o slider
+        });
+
         const translations = {
             pt: {
                 'nav a[aria-label="Início"]': 'Início',
@@ -362,7 +394,7 @@
                 'contact-info-title': 'Contact Us',
                 'contact-info-email': 'Email: support@saberlusitano.com',
                 'contact-info-phone': 'Phone: +351 965 238 396',
-                'contact-info-address': 'Address:<br> Centro Comercial do Lumiar, Store No. 48 <br>Rua Professor João Barreira 1600-637 Lisbon',
+                'contact-info-address': 'Address:<br> Centro Comercial do Lumiar, Store No. 48 <br> Rua Professor João Barreira 1600-637 Lisbon',
                 'map-title': 'Location',
                 'footer-text': '© 2024 Saber Lusitano - All rights reserved',
                 'send-button': 'Send',
@@ -396,26 +428,16 @@
             document.querySelector('#map-title').textContent = translation['map-title'];
             document.querySelector('#footer-text').textContent = translation['footer-text'];
             document.querySelector('#send-button').textContent = translation['send-button'];
-            
-            document.querySelector('#nomeOrcamento').setAttribute('placeholder', translation['placeholder-name']);
-            document.querySelector('#emailOrcamento').setAttribute('placeholder', translation['placeholder-email']);
-            document.querySelector('#mensagemOrcamento').setAttribute('placeholder', translation['placeholder-message']);
+
+            document.querySelector('#name').setAttribute('placeholder', translation['placeholder-name']);
+            document.querySelector('#email').setAttribute('placeholder', translation['placeholder-email']);
+            document.querySelector('#message').setAttribute('placeholder', translation['placeholder-message']);
         }
 
         document.addEventListener('DOMContentLoaded', () => {
             const savedLanguage = localStorage.getItem('language') || 'pt';
             setLanguage(savedLanguage);
         });
-
-        let currentSlide = 0;
-
-        function moveSlider(direction) {
-            const slider = document.querySelector('.slider');
-            const totalSlides = slider.children.length;
-
-            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
-            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-        }
     </script>
 </body>
 </html>
