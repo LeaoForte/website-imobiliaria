@@ -74,18 +74,21 @@
 .sec-about-us .about-text {
     flex: 1;
     padding-right: 20px;
+    font-size: 1.25em; /* Aumenta o tamanho da fonte */
+    font-weight: bold; /* Define o texto em negrito */
 }
 
 .sec-about-us .about-images {
-    flex: 0 0 200px;
+    flex: 0 0 auto; /* Ajusta a largura da coluna de imagens para não ser fixa */
     display: flex;
-    flex-direction: column;
-    gap: 15px;
+    flex-direction: row; /* Alinha as imagens em linha */
+    gap: 15px; /* Adiciona espaçamento entre as imagens */
 }
 
 .sec-about-us .about-images img {
-    width: 100%;
-    height: auto;
+    width: 100%; /* Ajusta a largura das imagens para 100% do contêiner */
+    max-width: 300px; /* Define uma largura máxima para as imagens */
+    height: auto; /* Mantém a proporção das imagens */
     border: 1px solid #ddd; /* Borda ao redor das imagens */
     border-radius: 4px; /* Borda arredondada para as imagens */
 }
