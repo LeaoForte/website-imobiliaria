@@ -427,6 +427,11 @@
     
                 document.querySelector('#footer-text').textContent = translation['footer-text'];
                 document.querySelector('#send-button').textContent = translation['send-button'];
+
+                // Traduzir as placeholders
+                document.querySelector('#name').setAttribute('placeholder', translation['placeholder-name']);
+                document.querySelector('#email').setAttribute('placeholder', translation['placeholder-email']);
+                document.querySelector('#message').setAttribute('placeholder', translation['placeholder-message']);
         }
 
         document.addEventListener('DOMContentLoaded', () => {
