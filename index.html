@@ -217,82 +217,13 @@ footer p {
 </div>
     
     <main>
-        <section class="search-section">
-            <div class="slider">
-                <img src="photologin.jpg" alt="Imagem 1" class="active">
-                <img src="photologin2.jpeg" alt="Imagem 2">
-                <img src="photologin3.jpg" alt="Imagem 3">
-                <!-- Adicione mais imagens conforme necessário -->
-                <div class="arrow left" onclick="prevSlide()">&#9664;</div>
-                <div class="arrow right" onclick="nextSlide()">&#9654;</div>
-            </div>
-            <div class="search-content">
-                <div class="btn-group">
-                    <button class="btn active" id="btnComprar">Comprar</button>
-                    <button class="btn" id="btnArrendar">Arrendar</button>
-                </div>
-                <input type="text" id="searchInput" placeholder="Onde? (Zona ou Morada ou Código postal)">
-            </div>
-        </section>
+        
     </main>
 
     <footer class="bg-dark text-light text-center py-3">
         <p>&copy; 2023 Saber Lusitano. Todos os direitos reservados.</p>
     </footer>
 
-    <script>
-        let currentSlide = 0;
-
-        function showSlide(index) {
-            const slides = document.querySelectorAll('.slider img');
-            if (index >= slides.length) currentSlide = 0;
-            if (index < 0) currentSlide = slides.length - 1;
-            slides.forEach((slide, i) => {
-                slide.classList.toggle('active', i === currentSlide);
-            });
-        }
-
-        function nextSlide() {
-            currentSlide++;
-            showSlide(currentSlide);
-        }
-
-        function prevSlide() {
-            currentSlide--;
-            showSlide(currentSlide);
-        }
-
-        let searchType = 'comprar'; // Valor padrão é 'comprar'
-
-    document.getElementById('btnComprar').addEventListener('click', function() {
-        this.classList.add('active');
-        document.getElementById('btnArrendar').classList.remove('active');
-        searchType = 'comprar'; // Define a ação de pesquisa para 'comprar'
-    });
-
-    document.getElementById('btnArrendar').addEventListener('click', function() {
-        this.classList.add('active');
-        document.getElementById('btnComprar').classList.remove('active');
-        searchType = 'arrendar'; // Define a ação de pesquisa para 'arrendar'
-    });
-
-    function performSearch() {
-        const searchQuery = document.getElementById('searchInput').value;
-        console.log(`Tipo de pesquisa: ${searchType}, Consulta: ${searchQuery}`);
-        // Aqui você pode adicionar a lógica para realizar a pesquisa com base em 'searchType'
-    }
-
-    // Exemplo de como ativar a pesquisa com um botão ou outro evento
-    document.getElementById('searchInput').addEventListener('keydown', function(event) {
-        if (event.key === 'Enter') {
-            performSearch(); // Chama a função de pesquisa quando o Enter é pressionado
-        }
-    });
-
-        // Inicializar o slide
-        showSlide(currentSlide);
-    </script>
-    
     <script>
         function setLanguage(lang) {
             localStorage.setItem('selectedLanguage', lang); // Armazena o idioma selecionado
