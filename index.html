@@ -253,6 +253,7 @@
                     'h1[data-translate="box3-title"]': 'Consultoria Migratória',
                     'p[data-translate="box3-description"]': 'Receba orientação especializada para facilitar o seu processo de migração. Oferecemos consultoria personalizada para garantir que você entenda todas as etapas e requisitos legais necessários.',
                     'button[data-translate="box3-button"]': 'SABER MAIS',
+                    'div.about-text p': 'Fundada em 2023 por dois visionários apaixonados pelo setor imobiliário e pelas necessidades dos clientes, a nossa empresa nasceu com o compromisso de transformar sonhos em realidade. Desde o início, a nossa missão tem sido fornecer serviços de excelência em Venda e Aluguer de Imóveis, Remodelações e Consultoria Migratória.'
                 },
                 en: {
                     'nav a[aria-label="Início"]': 'Home',
@@ -271,11 +272,12 @@
                     'h1[data-translate="box3-title"]': 'Immigration Consulting',
                     'p[data-translate="box3-description"]': 'Receive expert guidance to facilitate your migration process. We offer personalized consulting to ensure you understand all the necessary steps and legal requirements.',
                     'button[data-translate="box3-button"]': 'LEARN MORE',
+                    'div.about-text p': 'Founded in 2023 by two visionaries passionate about real estate and client needs, our company was born with a commitment to turning dreams into reality. From the start, our mission has been to provide excellent services in Real Estate Sales and Rentals, Renovations, and Immigration Consulting.'
                 }
             };
-
+    
             const translation = translations[lang];
-
+    
             for (const selector in translation) {
                 const element = document.querySelector(selector);
                 if (element) {
@@ -283,12 +285,13 @@
                 }
             }
         }
-
+    
         document.addEventListener('DOMContentLoaded', () => {
             const lang = localStorage.getItem('selectedLanguage') || 'pt';
             setLanguage(lang);
         });
     </script>
+    
 </body>
 
 </html>
