@@ -36,7 +36,7 @@
 
         nav {
             text-align: right;
-            flex: 1; /* Faz a navegação ocupar o máximo de espaço disponível */
+            flex: 1;
         }
 
         nav a {
@@ -54,31 +54,29 @@
         main {
             flex: 1;
             margin-top: 20px;
-            padding: 0; /* Remove o padding para ocupar toda a largura */
+            padding: 0;
         }
 
         /* Seção de Boxes */
         .sec-boxes {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center; /* Centraliza as caixas horizontalmente */
-            gap: 20px; /* Espaçamento entre as caixas */
+            justify-content: center;
+            gap: 20px;
         }
 
         .box {
             padding: 1.5em 1em;
-            width: 23%; /* Ajusta para se alinhar melhor */
-            height: 400px;
-            border-top: .1em solid #d3d3d3;
-            border-bottom: .1em solid #d3d3d3;
-            border-left: .1em solid #d3d3d3;
-            transition: background 0.25s;
+            width: calc(33.333% - 20px); /* Ajusta a largura das caixas com base no espaçamento */
+            height: auto; /* Ajusta a altura automática */
+            min-height: 300px; /* Altura mínima para garantir consistência */
+            border: .1em solid #d3d3d3;
             background-color: #ffffff;
             box-sizing: border-box;
-        }
-
-        .box:last-child {
-            border-right: .1em solid #d3d3d3;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: background 0.25s;
         }
 
         .box:hover {
@@ -87,22 +85,22 @@
 
         .box h1 {
             text-align: center;
+            margin-bottom: 1em; /* Adiciona espaço abaixo do título */
         }
 
         .box p {
-            margin-top: 4em;
-            height: 6em;
+            flex: 1; /* Faz o parágrafo ocupar o espaço disponível */
             text-align: justify;
+            margin: 0 0 1em; /* Ajusta a margem para não ficar muito afastado das bordas */
         }
 
         .box .button {
-            display: block;
-            margin: 4em auto;
+            align-self: center;
             padding: .75em 1.25em;
             font-size: 1em;
             font-weight: bold;
             text-transform: uppercase;
-            background: #ad0000; /* Adapta para o vermelho do exemplo */
+            background: #ad0000;
             color: #fff;
             border: 0;
             cursor: pointer;
@@ -110,21 +108,19 @@
         }
 
         .box .button:hover {
-            background: darken(#ad0000, 7%);
+            background: #8a0000; /* Corrige a cor do hover */
         }
 
-        /* Outros estilos e ajustes conforme o necessário */
-
         .language-selector img {
-            width: 24px; /* Define a largura das bandeiras */
-            height: 24px; /* Define a altura das bandeiras */
-            margin-left: 10px; /* Adiciona um espaço entre as bandeiras */
-            cursor: pointer; /* Muda o cursor para indicar que é clicável */
-            transition: transform 0.2s ease; /* Adiciona uma transição suave para o efeito de hover */
+            width: 24px;
+            height: 24px;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
         }
 
         .language-selector img:hover {
-            transform: scale(1.1); /* Aumenta ligeiramente o tamanho no hover */
+            transform: scale(1.1);
         }
 
         footer {
@@ -166,17 +162,17 @@
         <section class="sec-boxes" role="section">
             <article class="box">
                 <h1>Propriedades</h1>
-                <p>Every option should be explored and tried no matter how unpredictable, impossible, insane or ridiculous does it looks or sound.</p>
+                <p>Explore as nossas propriedades exclusivas que oferecem o melhor em termos de localização, conforto e design. Cada imóvel é cuidadosamente selecionado para atender às suas necessidades e desejos.</p>
                 <button class="button" type="button" role="button" value="SABER MAIS">SABER MAIS</button>
             </article>
             <article class="box">
                 <h1>Remodelações</h1>
-                <p>Brainstorming, idea generation, playing sessions, note taking. You think you used everything? We will challenge your mind and its abilities to the limits.</p>
+                <p>Transforme o seu espaço com as nossas soluções de remodelação inovadoras. Desde atualizações modernas até renovações completas, oferecemos serviços que garantem resultados excepcionais.</p>
                 <button class="button" type="button" role="button" value="SABER MAIS">SABER MAIS</button>
             </article>
             <article class="box">
                 <h1>Consultoria Migratória</h1>
-                <p>Our methods and ideas are are not written or following any books, curriculums or rules. We consider ourselves rebels and we are proud of it.</p>
+                <p>Receba orientação especializada para facilitar o seu processo de migração. Oferecemos consultoria personalizada para garantir que você entenda todas as etapas e requisitos legais necessários.</p>
                 <button class="button" type="button" role="button" value="SABER MAIS">SABER MAIS</button>
             </article>
         </section>
@@ -218,14 +214,6 @@
                     element.textContent = translation[selector];
                 }
             }
-
-            // Atualiza os placeholders dos inputs
-            document.querySelectorAll('input[placeholder]').forEach(input => {
-                const placeholder = input.getAttribute('placeholder');
-                if (translations[lang][`input[placeholder="${placeholder}"]`]) {
-                    input.setAttribute('placeholder', translations[lang][`input[placeholder="${placeholder}"]`]);
-                }
-            });
         }
 
         document.addEventListener('DOMContentLoaded', () => {
