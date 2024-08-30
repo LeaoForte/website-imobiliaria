@@ -417,18 +417,16 @@
                 }
             });
 
-            document.querySelector('#header-title').textContent = translation['header-title'];
-            document.querySelector('#contact-info-title').textContent = translation['contact-info-title'];
-            document.querySelector('#contact-info-email').textContent = translation['contact-info-email'];
-            document.querySelector('#contact-info-phone').textContent = translation['contact-info-phone'];
-            document.querySelector('#contact-info-address').innerHTML = translation['contact-info-address'];
-            document.querySelector('#map-title').textContent = translation['map-title'];
-            document.querySelector('#footer-text').textContent = translation['footer-text'];
-            document.querySelector('#send-button').textContent = translation['send-button'];
-
-            document.querySelector('#name').setAttribute('placeholder', translation['placeholder-name']);
-            document.querySelector('#email').setAttribute('placeholder', translation['placeholder-email']);
-            document.querySelector('#message').setAttribute('placeholder', translation['placeholder-message']);
+               document.querySelector('#header-title').textContent = translation['header-title'];
+               document.querySelector('#contact-info-title').textContent = translation['contact-info-title'];
+    
+                // Usando innerHTML para interpretar HTML
+                document.querySelector('#contact-info-email').innerHTML = translation['contact-info-email'];
+                document.querySelector('#contact-info-phone').innerHTML = translation['contact-info-phone'];
+                document.querySelector('#contact-info-address').innerHTML = translation['contact-info-address'];
+    
+                document.querySelector('#footer-text').textContent = translation['footer-text'];
+                document.querySelector('#send-button').textContent = translation['send-button'];
         }
 
         document.addEventListener('DOMContentLoaded', () => {
