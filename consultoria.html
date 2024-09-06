@@ -20,7 +20,6 @@
             color: #333;
         }
 
-        /* Linha verde abaixo da barra superior */
         .topbar {
             background-color: #ffffff;
             padding: 0 20px;
@@ -29,7 +28,7 @@
             align-items: center;
             justify-content: space-between;
             height: 80px;
-            border-bottom: 4px solid #28a745; /* Adiciona uma linha verde abaixo da barra superior */
+            border-bottom: 4px solid #28a745;
         }
 
         .topbar img {
@@ -39,7 +38,7 @@
 
         nav {
             text-align: right;
-            flex: 1; /* Faz a navegação ocupar o máximo de espaço disponível */
+            flex: 1;
         }
 
         nav a {
@@ -57,23 +56,24 @@
         main {
             flex: 1;
             margin-top: 20px;
-            padding: 0; /* Remove o padding para ocupar toda a largura */
+            padding: 0;
         }
 
         * {
             box-sizing: border-box;
         }
 
-        /* Alinhamento e espaçamento das colunas */
         .row {
             display: flex;
             flex-wrap: wrap;
-            margin: 0; /* Remove o padding das colunas */
+            margin: 0;
         }
 
         .col {
             flex: 1;
-            padding: 0 10px; /* Adiciona padding horizontal */
+            padding: 0 10px;
+            display: flex;
+            align-items: stretch;
         }
 
         .service-item {
@@ -83,35 +83,44 @@
             padding: 15px;
             margin-bottom: 15px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            border-top: 4px solid #28a745; /* Linha verde no topo da caixa */
-            border-bottom: 4px solid #28a745; /* Linha verde abaixo de cada seção de serviço */
+            border-top: 4px solid #28a745;
+            border-bottom: 4px solid #28a745;
+            flex: 1; /* Faz com que todos os itens tenham a mesma altura */
+            display: flex;
+            flex-direction: column; /* Alinha o conteúdo verticalmente */
+            min-height: 200px; /* Define uma altura mínima */
         }
 
         .service-item h2 {
-            color: #28a745; /* Cor verde para os títulos */
-            padding-top: 10px; /* Mantém o espaçamento para não colar o texto na borda */
+            color: #28a745;
+            padding-top: 10px;
+            margin: 0;
+        }
+
+        .service-item p {
+            flex: 1; /* Faz com que o texto ocupe o espaço disponível */
+            margin-bottom: 0;
         }
 
         .language-selector img {
-            width: 24px; /* Define a largura das bandeiras */
-            height: 24px; /* Define a altura das bandeiras */
-            margin-left: 10px; /* Adiciona um espaço entre as bandeiras */
-            cursor: pointer; /* Muda o cursor para indicar que é clicável */
-            transition: transform 0.2s ease; /* Adiciona uma transição suave para o efeito de hover */
+            width: 24px;
+            height: 24px;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
         }
 
         .language-selector img:hover {
-            transform: scale(1.1); /* Aumenta ligeiramente o tamanho no hover */
+            transform: scale(1.1);
         }
 
-        /* Linha verde no rodapé */
         footer {
             text-align: center;
             margin-top: 20px;
             background-color: #333;
             padding: 15px;
             color: #fff;
-            border-top: 4px solid #28a745; /* Linha verde no topo do rodapé */
+            border-top: 4px solid #28a745;
         }
 
         footer p {
@@ -135,7 +144,6 @@
             color: #555;
         }
 
-        /* Estiliza o botão no final da página */
         .btn-custom {
             display: inline-block;
             padding: 10px 20px;
@@ -144,23 +152,23 @@
             text-align: center;
             text-decoration: none;
             color: #fff;
-            background: linear-gradient(45deg, #28a745, #218838); /* Gradiente verde */
+            background: linear-gradient(45deg, #28a745, #218838);
             border-radius: 50px;
             border: 2px solid transparent;
             transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidade */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .btn-custom:hover {
-            background: linear-gradient(45deg, #218838, #28a745); /* Inverte o gradiente no hover */
-            transform: scale(1.05); /* Aumenta ligeiramente o tamanho */
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Aumenta a sombra no hover */
+            background: linear-gradient(45deg, #218838, #28a745);
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
 
         .btn-custom:active {
-            background: #1e7e34; /* Cor sólida no clique */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Diminui a sombra no clique */
-            transform: scale(0.95); /* Reduz ligeiramente o tamanho */
+            background: #1e7e34;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transform: scale(0.95);
         }
 
         .text-center {
@@ -168,7 +176,7 @@
         }
 
         .mt-4 {
-            margin-top: 1.5rem; /* Espaço superior */
+            margin-top: 1.5rem;
         }
     </style>
 </head>
