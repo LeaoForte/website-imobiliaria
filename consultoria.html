@@ -57,45 +57,34 @@
         main {
             flex: 1;
             margin-top: 20px;
-            padding: 0 20px; /* Adiciona padding lateral para garantir espaçamento adequado */
+            padding: 0; /* Remove o padding para ocupar toda a largura */
         }
 
         * {
             box-sizing: border-box;
         }
 
-        /* Cria duas colunas que ficam lado a lado */
-        .column {
-            width: 50%;
-            padding: 10px;
-        }
-
+        /* Alinhamento e espaçamento das colunas */
         .row {
             display: flex;
             flex-wrap: wrap;
-            margin: 0 -10px; /* Compensa o padding das colunas */
+            margin: 0; /* Remove o padding das colunas */
         }
 
-        .row > .column {
+        .col {
             flex: 1;
+            padding: 0 10px; /* Adiciona padding horizontal */
         }
 
-        /* Ajusta as margens entre as caixas de serviço */
         .service-item {
             background-color: #fff;
             border: 1px solid #ddd;
             border-radius: 8px;
             padding: 15px;
             margin-bottom: 15px;
-            margin-right: 15px; /* Margem à direita para espaçamento entre caixas */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             border-top: 4px solid #28a745; /* Linha verde no topo da caixa */
             border-bottom: 4px solid #28a745; /* Linha verde abaixo de cada seção de serviço */
-        }
-
-        /* Remove a margem direita da última caixa em cada linha */
-        .row > .column > .service-item:last-child {
-            margin-right: 0;
         }
 
         .service-item h2 {
@@ -208,37 +197,51 @@
         <div class="container">
             <div class="intro-text">
                 <h1 data-translate="intro-title">Connosco mudar-se para Portugal não podia ser mais fácil!</h1>
-                <p data-translate="intro-text-1">Tratamos de todos os assuntos desde o primeiro dia! Todos os pré-requisitos, vistos, documentos, número de contribuinte Português, abertura de conta bancária,</p>
+                <p data-translate="intro-text-1">Tratamos de todos os assuntos desde o primeiro dia! Todos os pré-requisitos, vistos, documentos, numero de contribuinte Português, abertura de conta bancária,</p>
                 <p data-translate="intro-text-2">transportes, inscrição no serviço nacional de saúde e/ou escolas. Tudo o que precisa para viver em Portugal.</p>
                 <p data-translate="intro-text-3">Enquanto você faz as suas malas, nós tratamos do resto!</p>
             </div>
             <div class="row">
-                <div class="column">
+                <div class="col">
                     <div class="service-item">
                         <h2 data-translate="service-title-1">Vistos</h2>
                         <p data-translate="service-description-1">Estudante, nómada digital, empresário, procura de emprego, rendimentos passivos e suporte para a família.</p>
                     </div>
                     <div class="service-item">
                         <h2 data-translate="service-title-2">Nacionalidade Portuguesa</h2>
-                        <p data-translate="service-description-2">Apoio total em todo o processo de obtenção da nacionalidade e a sua inclusão no processo.</p>
+                        <p data-translate="service-description-2">Pedido de cidadania, registro de matrimónio e processo para validar e aceitar decisão judicial internacional.</p>
                     </div>
                 </div>
-                <div class="column">
+                <div class="col">
                     <div class="service-item">
-                        <h2 data-translate="service-title-3">Documentos</h2>
-                        <p data-translate="service-description-3">Obtenção de Número de Identificação Fiscal, abertura de conta bancária e outros documentos necessários.</p>
+                        <h2 data-translate="service-title-3">Legalização em Portugal</h2>
+                        <p data-translate="service-description-3">Concessão de autorização de residência, apresentação de interesse e reunião familiar, CPLP.</p>
                     </div>
                     <div class="service-item">
-                        <h2 data-translate="service-title-4">Apoio em Portugal</h2>
-                        <p data-translate="service-description-4">Transportes, inscrição no Serviço Nacional de Saúde, escolas e outras necessidades.</p>
+                        <h2 data-translate="service-title-4">Assessoria Educacional</h2>
+                        <p data-translate="service-description-4">Cadastro escolar, validação e equivalência de formação acadêmica.</p>
                     </div>
                 </div>
+                <div class="col">
+                    <div class="service-item">
+                        <h2 data-translate="service-title-5">Emissão de Documentos</h2>
+                        <p data-translate="service-description-5">NIF, NISS, abertura de atividade e empresa, abertura de conta bancária.</p>
+                    </div>
+                    <div class="service-item">
+                        <h2 data-translate="service-title-6">Outros Serviços</h2>
+                        <p data-translate="service-description-6">Assessoria na compra ou aluguer de imóveis, consultoria fiscal, apoio na elaboração de currículo, etc.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Botão para ver a lista completa de serviços -->
+            <div class="text-center mt-4">
+                <a href="lista_completa.html" class="btn btn-custom" data-translate="view-services">Ver a Lista Completa de Serviços</a>
             </div>
         </div>
     </main>
 
-    <footer>
-        <p>&copy; 2024 Consultoria Migratória. Todos os direitos reservados.</p>
+    <footer class="bg-dark text-light text-center py-3">
+        <p data-translate="footer-text">&copy; 2024 Saber Lusitano. Todos os direitos reservados.</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybTTo7yD8U2P4dNxgl6FQ5Xy4GVn8ghjvUpxcnA3xvUEnqV" crossorigin="anonymous"></script>
