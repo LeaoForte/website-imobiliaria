@@ -77,6 +77,10 @@
             border-top: 4px solid #28a745;
             border-bottom: 4px solid #28a745;
             min-height: 200px; /* Define uma altura mínima */
+            text-align: center; /* Centraliza o texto dentro das caixas */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .service-item h2 {
@@ -87,6 +91,11 @@
 
         .service-item p {
             margin-bottom: 0;
+        }
+
+        .language-selector {
+            display: flex;
+            align-items: center;
         }
 
         .language-selector img {
@@ -165,6 +174,44 @@
         .mt-4 {
             margin-top: 1.5rem;
         }
+
+        @media (max-width: 1200px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+                gap: 10px; /* Menor espaçamento para telas menores */
+            }
+
+            .topbar {
+                flex-direction: column;
+                align-items: flex-start;
+                height: auto;
+                padding: 10px;
+            }
+
+            nav {
+                text-align: left;
+                margin-top: 10px;
+            }
+
+            nav a {
+                display: block;
+                margin: 5px 0;
+            }
+
+            .intro-text h1 {
+                font-size: 1.2em;
+            }
+
+            .intro-text p {
+                font-size: 1em;
+            }
+        }
     </style>
 </head>
 
@@ -207,23 +254,23 @@
                 </div>
                 <div class="service-item">
                     <h2 data-translate="service-title-3">Legalização em Portugal</h2>
-                    <p data-translate="service-description-3">Concessão de autorização de residência, apresentação de interesse e reunião familiar, CPLP.</p>
+                    <p data-translate="service-description-3">Concessão de autorização de residência, apresentação de processo e elaboração de documentos para as entidades oficiais.</p>
                 </div>
                 <div class="service-item">
-                    <h2 data-translate="service-title-4">Assessoria Educacional</h2>
-                    <p data-translate="service-description-4">Cadastro escolar, validação e equivalência de formação acadêmica.</p>
+                    <h2 data-translate="service-title-4">Apoio na Mudança</h2>
+                    <p data-translate="service-description-4">Organizamos o transporte e mudamos tudo o que for necessário para você, desde a sua casa atual até Portugal.</p>
                 </div>
                 <div class="service-item">
-                    <h2 data-translate="service-title-5">Emissão de Documentos</h2>
-                    <p data-translate="service-description-5">NIF, NISS, abertura de atividade e empresa, abertura de conta bancária.</p>
+                    <h2 data-translate="service-title-5">Consultoria</h2>
+                    <p data-translate="service-description-5">Orientamos e assistimos no planejamento da sua mudança, assim como na adaptação à vida em Portugal.</p>
                 </div>
                 <div class="service-item">
                     <h2 data-translate="service-title-6">Outros Serviços</h2>
-                    <p data-translate="service-description-6">Assessoria na compra ou aluguer de imóveis, consultoria fiscal, apoio na elaboração de currículo, etc.</p>
+                    <p data-translate="service-description-6">Estamos prontos para ajudar com qualquer necessidade específica que você possa ter durante a sua mudança.</p>
                 </div>
             </div>
             <div class="text-center mt-4">
-                <a href="lista_completa.html" class="btn btn-custom" data-translate="view-services">Ver a Lista Completa de Serviços</a>
+                <a href="contactos.html" class="btn-custom">Contacte-nos para mais informações!</a>
             </div>
         </div>
     </main>
