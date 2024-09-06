@@ -23,52 +23,52 @@
             flex: 1;
             margin-top: 20px;
             padding: 0;
-            }
-
+        }
 
         .topbar {
-    background-color: #ffffff;
-    padding: 0 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 80px;
-            }
+            background-color: #ffffff;
+            padding: 0 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+            border-bottom: 4px solid #28a745;
+        }
 
         .topbar img {
-    max-width: 150px;
-    height: auto;
-                }
+            max-width: 150px;
+            height: auto;
+        }
 
         nav {
-    text-align: right;
-    flex: 1;
-            }
+            text-align: right;
+            flex: 1;
+        }
 
-            nav a {
-    color: #333;
-    margin: 0 15px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
+        nav a {
+            color: #333;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
         }
 
         nav a:hover {
-    color: #ffcc00;
+            color: #ffcc00;
         }
 
         .language-selector img {
-    width: 24px;
-    height: 24px;
-    margin-left: 10px;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-                }
+            width: 24px;
+            height: 24px;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
 
-    .language-selector img:hover {
-    transform: scale(1.1);
-    }
+        .language-selector img:hover {
+            transform: scale(1.1);
+        }
 
         .service-section {
             background-color: #f8f9fa;
@@ -155,12 +155,12 @@
             <img src="saberlusitano.png" alt="Logotipo Empresa">
         </a>
         <nav>
-            <a href="index.html" aria-label="Início">Início</a>
-            <a href="lista.html" aria-label="Imóveis">Imóveis</a>
-            <a href="consultoria.html" aria-label="Consultoria Migratória">Consultoria Migratória</a>
-            <a href="remodel.html" aria-label="Remodelações">Remodelações</a>
-            <a href="contactos.html" aria-label="Contactos">Contactos</a>
-            <a href="login.html" aria-label="Login">Login</a>
+            <a href="index.html" aria-label="Início" id="nav-home">Início</a>
+            <a href="lista.html" aria-label="Imóveis" id="nav-properties">Imóveis</a>
+            <a href="consultoria.html" aria-label="Consultoria Migratória" id="nav-consulting">Consultoria Migratória</a>
+            <a href="remodel.html" aria-label="Remodelações" id="nav-renovations">Remodelações</a>
+            <a href="contactos.html" aria-label="Contactos" id="nav-contacts">Contactos</a>
+            <a href="login.html" aria-label="Login" id="nav-login">Login</a>
         </nav>
         <div class="language-selector">
             <img src="pt.png" alt="Português" onclick="setLanguage('pt')" title="Português">
@@ -171,15 +171,15 @@
     <main>
         <section class="service-section">
             <div class="container">
-                <h2>Serviço de Remodelações</h2>
+                <h2 id="service-heading">Serviço de Remodelações</h2>
                 <div class="row">
                     <div class="col-md-6 col-lg-4">
                         <div class="service-box text-center">
                             <div class="service-box-icon">
                                 🏠
                             </div>
-                            <h3>Remodelações de Interiores</h3>
-                            <p>Transforme seus espaços com nossas remodelações de interiores, desde a renovação de salas e quartos até a reforma de cozinhas e banheiros. Garantimos qualidade e um acabamento que atende às suas expectativas.</p>
+                            <h3 id="interior-heading">Remodelações de Interiores</h3>
+                            <p id="interior-description">Transforme seus espaços com nossas remodelações de interiores, desde a renovação de salas e quartos até a reforma de cozinhas e banheiros. Garantimos qualidade e um acabamento que atende às suas expectativas.</p>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4">
@@ -187,8 +187,8 @@
                             <div class="service-box-icon">
                                 🌳
                             </div>
-                            <h3>Remodelações Exteriores</h3>
-                            <p>Melhore a aparência e a funcionalidade de sua propriedade com remodelações exteriores. Trabalhamos em fachadas, jardins e áreas de lazer para proporcionar um ambiente mais moderno e atraente.</p>
+                            <h3 id="exterior-heading">Remodelações Exteriores</h3>
+                            <p id="exterior-description">Melhore a aparência e a funcionalidade de sua propriedade com remodelações exteriores. Trabalhamos em fachadas, jardins e áreas de lazer para proporcionar um ambiente mais moderno e atraente.</p>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4">
@@ -196,8 +196,8 @@
                             <div class="service-box-icon">
                                 🛠️
                             </div>
-                            <h3>Projetos Personalizados</h3>
-                            <p>Cada cliente é único, e nós entendemos isso. Oferecemos projetos personalizados que atendem às suas necessidades específicas, garantindo que cada detalhe seja exatamente como você imaginou.</p>
+                            <h3 id="custom-heading">Projetos Personalizados</h3>
+                            <p id="custom-description">Cada cliente é único, e nós entendemos isso. Oferecemos projetos personalizados que atendem às suas necessidades específicas, garantindo que cada detalhe seja exatamente como você imaginou.</p>
                         </div>
                     </div>
                 </div>
@@ -206,7 +206,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 Saber Lusitano. Todos os direitos reservados.</p>
+        <p id="footer-text">© 2024 Saber Lusitano. Todos os direitos reservados.</p>
     </footer>
 
     <script>
@@ -214,40 +214,47 @@
             localStorage.setItem('selectedLanguage', lang);
             const translations = {
                 pt: {
-                    'nav a[aria-label="Início"]': 'Início',
-                    'nav a[aria-label="Imóveis"]': 'Imóveis',
-                    'nav a[aria-label="Consultoria Migratória"]': 'Consultoria Migratória',
-                    'nav a[aria-label="Remodelações"]': 'Remodelações',
-                    'nav a[aria-label="Contactos"]': 'Contactos',
-                    'nav a[aria-label="Login"]': 'Login',
-                    'footer p': '© 2024 Saber Lusitano. Todos os direitos reservados.',
+                    'nav-home': 'Início',
+                    'nav-properties': 'Imóveis',
+                    'nav-consulting': 'Consultoria Migratória',
+                    'nav-renovations': 'Remodelações',
+                    'nav-contacts': 'Contactos',
+                    'nav-login': 'Login',
+                    'service-heading': 'Serviço de Remodelações',
+                    'interior-heading': 'Remodelações de Interiores',
+                    'interior-description': 'Transforme seus espaços com nossas remodelações de interiores, desde a renovação de salas e quartos até a reforma de cozinhas e banheiros. Garantimos qualidade e um acabamento que atende às suas expectativas.',
+                    'exterior-heading': 'Remodelações Exteriores',
+                    'exterior-description': 'Melhore a aparência e a funcionalidade de sua propriedade com remodelações exteriores. Trabalhamos em fachadas, jardins e áreas de lazer para proporcionar um ambiente mais moderno e atraente.',
+                    'custom-heading': 'Projetos Personalizados',
+                    'custom-description': 'Cada cliente é único, e nós entendemos isso. Oferecemos projetos personalizados que atendem às suas necessidades específicas, garantindo que cada detalhe seja exatamente como você imaginou.',
+                    'footer-text': '© 2024 Saber Lusitano. Todos os direitos reservados.',
                 },
                 en: {
-                    'nav a[aria-label="Início"]': 'Home',
-                    'nav a[aria-label="Imóveis"]': 'Properties',
-                    'nav a[aria-label="Consultoria Migratória"]': 'Immigration Consulting',
-                    'nav a[aria-label="Remodelações"]': 'Renovations',
-                    'nav a[aria-label="Contactos"]': 'Contact',
-                    'nav a[aria-label="Login"]': 'Login',
-                    'footer p': '© 2024 Saber Lusitano. All rights reserved.',
+                    'nav-home': 'Home',
+                    'nav-properties': 'Properties',
+                    'nav-consulting': 'Immigration Consulting',
+                    'nav-renovations': 'Renovations',
+                    'nav-contacts': 'Contact',
+                    'nav-login': 'Login',
+                    'service-heading': 'Renovation Services',
+                    'interior-heading': 'Interior Renovations',
+                    'interior-description': 'Transform your spaces with our interior renovations, from living rooms and bedrooms to kitchen and bathroom remodels. We guarantee quality and a finish that meets your expectations.',
+                    'exterior-heading': 'Exterior Renovations',
+                    'exterior-description': 'Enhance the appearance and functionality of your property with exterior renovations. We work on facades, gardens, and leisure areas to provide a more modern and attractive environment.',
+                    'custom-heading': 'Customized Projects',
+                    'custom-description': 'Every client is unique, and we understand that. We offer customized projects that meet your specific needs, ensuring that every detail is exactly as you envisioned.',
+                    'footer-text': '© 2024 Saber Lusitano. All rights reserved.',
                 }
             };
 
             const translation = translations[lang];
 
-            for (const selector in translation) {
-                const element = document.querySelector(selector);
+            for (const id in translation) {
+                const element = document.getElementById(id);
                 if (element) {
-                    element.textContent = translation[selector];
+                    element.textContent = translation[id];
                 }
             }
-
-            document.querySelectorAll('input[placeholder]').forEach(input => {
-                const placeholder = input.getAttribute('placeholder');
-                if (translations[lang][`input[placeholder="${placeholder}"]`]) {
-                    input.setAttribute('placeholder', translations[lang][`input[placeholder="${placeholder}"]`]);
-                }
-            });
         }
 
         document.addEventListener('DOMContentLoaded', function() {
