@@ -62,10 +62,14 @@
             box-sizing: border-box;
         }
 
+        .container {
+            padding: 0 20px;
+        }
+
         .grid-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px; /* Espaço entre as caixas */
+            gap: 20px; /* Espaço entre as colunas */
         }
 
         .service-item {
@@ -254,7 +258,7 @@
                 </div>
                 <div class="service-item">
                     <h2 data-translate="service-title-3">Legalização em Portugal</h2>
-                    <p data-translate="service-description-3">Concessão de autorização de residência, apresentação de processo e elaboração de documentos para as entidades oficiais.</p>
+                    <p data-translate="service-description-3">Residir, trabalhar e abrir uma empresa em Portugal. Entregamos toda a documentação e garantimos o processo legal.</p>
                 </div>
                 <div class="service-item">
                     <h2 data-translate="service-title-4">Apoio na Mudança</h2>
@@ -280,6 +284,7 @@
     </footer>
 
     <script>
+
         function setLanguage(lang) {
             const translations = {
                 pt: {
