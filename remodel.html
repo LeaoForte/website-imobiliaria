@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saber Lusitano</title>
+    <title>Saber Lusitano - Lista de Serviços</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css" integrity="sha384-rV2dbmMz9ATKxIep9tiCxS/Z9fNfEXFRQ4LsARq6Ig6e2LEFZDVH/xZfZxHXXnT" crossorigin="anonymous">
     <style>
         body {
@@ -15,156 +15,121 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            background-color: #f4f4f4;
+            background-color: #f1f1f1;
             color: #333;
-        }
-
-        .topbar {
-        background-color: #ffffff;
-        padding: 0 20px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        height: 80px;
-        }
-
-    .topbar img {
-    max-width: 150px;
-    height: auto;
-        }
-
-        nav {
-            text-align: right;
-        }
-
-        nav a {
-            color: #333;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
-
-        nav a:hover {
-            color: #28a745;
-            transform: translateY(-2px);
         }
 
         main {
             flex: 1;
             margin-top: 20px;
             padding: 0;
+            }
+
+
+        .topbar {
+    background-color: #ffffff;
+    padding: 0 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+            }
+
+        .topbar img {
+    max-width: 150px;
+    height: auto;
+                }
+
+        nav {
+    text-align: right;
+    flex: 1;
+            }
+
+            nav a {
+    color: #333;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
         }
 
-        .search-section {
-            position: relative;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: left;
-            padding-left: 50px;
-            overflow: hidden;
-        }
-
-        .slider {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-
-        .slider img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: none;
-        }
-
-        .slider img.active {
-            display: block;
-        }
-
-        .slider .arrow {
-            position: absolute;
-            top: 50%;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(0, 0, 0, 0.5);
-            color: #fff;
-            text-align: center;
-            line-height: 40px;
-            font-size: 24px;
-            cursor: pointer;
-            border-radius: 50%;
-            transform: translateY(-50%);
-            z-index: 2;
-        }
-
-        .slider .arrow.left {
-            left: 10px;
-        }
-
-        .slider .arrow.right {
-            right: 10px;
-        }
-
-        .search-content {
-            position: relative;
-            z-index: 2;
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            padding-left: 70px;
-        }
-
-        .search-content .btn-group {
-            margin-bottom: 10px;
-        }
-
-        .search-content .btn {
-            border: none;
-            padding: 10px 20px;
-            font-size: 1.2em;
-            border-radius: 0;
-            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .search-content .btn.active {
-            color: #fff;
-        }
-
-        .search-content .btn:hover {
-            background: linear-gradient(135deg, #1e7e34 0%, #1c7430 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-        }
-
-        .search-content input[type="text"] {
-            width: 140%;
-            max-width: 600px;
-            padding: 15px;
-            font-size: 1.2em;
-            border-radius: 0;
-            border: 2px solid #28a745;
-            background-color: #fff;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        nav a:hover {
+    color: #ffcc00;
         }
 
         .language-selector img {
-            width: 24px;
-            height: 24px;
-            margin-left: 10px;
-            cursor: pointer;
-            transition: transform 0.2s ease;
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+                }
+
+    .language-selector img:hover {
+    transform: scale(1.1);
+    }
+
+        .service-section {
+            background-color: #f8f9fa;
+            padding: 60px 20px;
         }
 
-        .language-selector img:hover {
-            transform: scale(1.1);
+        .service-section h2 {
+            font-size: 2.8em;
+            margin-bottom: 40px;
+            color: #28a745;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .service-box {
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .service-box:hover {
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .service-box h3 {
+            font-size: 2em;
+            margin-bottom: 15px;
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .service-box p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .service-box-icon {
+            font-size: 3em;
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .service-box {
+                margin-bottom: 20px;
+            }
+
+            .service-section h2 {
+                font-size: 2.2em;
+                margin-bottom: 30px;
+            }
+
+            .service-box h3 {
+                font-size: 1.8em;
+            }
         }
 
         footer {
@@ -179,65 +144,6 @@
         footer p {
             margin: 0;
             font-size: 0.9em;
-        }
-
-        @media (max-width: 768px) {
-            .search-content input[type="text"] {
-                width: 100%;
-                max-width: none;
-            }
-
-            .search-content .btn {
-                font-size: 1em;
-                padding: 10px 20px;
-            }
-        }
-
-        .service-section {
-            background-color: #fff;
-            padding: 60px 20px;
-            border-top: none;
-            border-bottom: none;
-        }
-
-        .service-section h2 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            color: #333;
-            text-align: center;
-        }
-
-        .service-box {
-            background: #ffffff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: box-shadow 0.3s ease, transform 0.3s ease;
-        }
-
-        .service-box:hover {
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-            transform: translateY(-5px);
-        }
-
-        .service-box h3 {
-            font-size: 1.8em;
-            margin-bottom: 15px;
-            color: #333;
-        }
-
-        .service-box p {
-            font-size: 1.1em;
-            line-height: 1.6;
-            color: #555;
-        }
-
-        @media (max-width: 768px) {
-            .service-box {
-                margin-bottom: 20px;
-            }
         }
     </style>
 </head>
@@ -259,7 +165,7 @@
         <div class="language-selector">
             <img src="pt.png" alt="Português" onclick="setLanguage('pt')" title="Português">
             <img src="uk.png" alt="English" onclick="setLanguage('en')" title="English">
-        </div>    
+        </div>
     </div>
 
     <main>
@@ -268,19 +174,28 @@
                 <h2>Serviço de Remodelações</h2>
                 <div class="row">
                     <div class="col-md-6 col-lg-4">
-                        <div class="service-box">
+                        <div class="service-box text-center">
+                            <div class="service-box-icon">
+                                🏠
+                            </div>
                             <h3>Remodelações de Interiores</h3>
                             <p>Transforme seus espaços com nossas remodelações de interiores, desde a renovação de salas e quartos até a reforma de cozinhas e banheiros. Garantimos qualidade e um acabamento que atende às suas expectativas.</p>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4">
-                        <div class="service-box">
+                        <div class="service-box text-center">
+                            <div class="service-box-icon">
+                                🌳
+                            </div>
                             <h3>Remodelações Exteriores</h3>
                             <p>Melhore a aparência e a funcionalidade de sua propriedade com remodelações exteriores. Trabalhamos em fachadas, jardins e áreas de lazer para proporcionar um ambiente mais moderno e atraente.</p>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4">
-                        <div class="service-box">
+                        <div class="service-box text-center">
+                            <div class="service-box-icon">
+                                🛠️
+                            </div>
                             <h3>Projetos Personalizados</h3>
                             <p>Cada cliente é único, e nós entendemos isso. Oferecemos projetos personalizados que atendem às suas necessidades específicas, garantindo que cada detalhe seja exatamente como você imaginou.</p>
                         </div>
@@ -340,7 +255,6 @@
             setLanguage(savedLanguage);
         });
     </script>
-
 
 </body>
 
